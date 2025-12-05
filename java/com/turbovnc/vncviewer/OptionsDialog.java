@@ -50,12 +50,10 @@ class OptionsDialog extends Dialog implements ActionListener, ChangeListener,
   private String oldScalingFactor, oldDesktopSize;
   private boolean enableX509 = true;
   private static final String[] SCALING_FACTORS = {
-    "Auto", "Fixed Aspect Ratio", "50%", "75%", "95%", "100%", "105%", "125%",
-    "150%", "175%", "200%", "250%", "300%", "350%", "400%"
+    "Auto", "Fixed Aspect Ratio", "25%", "50%", "75%", "100%"
   };
   private static final String[] SCALING_FACTORS_ADR = {
-    "50%", "75%", "95%", "100%", "105%", "125%", "150%", "175%", "200%",
-    "250%", "300%", "350%", "400%"
+    "25%", "50%", "75%", "100%"
   };
   private static final DefaultComboBoxModel<String> CB_MODEL =
     new DefaultComboBoxModel<String>(SCALING_FACTORS);
