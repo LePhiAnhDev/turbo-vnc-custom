@@ -1,0 +1,135 @@
+* Obtaining and Installing TurboVNC
+
+** Installing TurboVNC on Linux
+
+*** Installing TurboVNC
+#OPT: noList! plain!
+
+	#. Download the appropriate TurboVNC binary package for your system from the
+		[[https://github.com/TurboVNC/turbovnc/releases][Releases area]*] of the
+		[[https://github.com/TurboVNC/turbovnc][TurboVNC GitHub project page]*].
+		RPM and Debian packages are provided for Linux distributions that contain
+		GLIBC 2.17 or later.
+		{nl}
+
+	#. ''cd'' to the directory where you downloaded the binary package, and issue
+		one of the following commands as root:
+
+		RPM-based systems using YUM :: {:}
+		#Verb <<---
+		yum install turbovnc*.rpm
+		---
+
+		RPM-based systems using DNF :: {:}
+		#Verb <<---
+		dnf install turbovnc*.rpm
+		---
+
+		RPM-based systems using YaST2 :: {:}
+		#Verb <<---
+		yast2 --install turbovnc*.rpm
+		---
+
+		Other RPM-based systems (dependencies will not be installed automatically) :: {:}
+		#Verb <<---
+		rpm -U turbovnc*.rpm
+		---
+
+		Debian-based systems :: {:}
+		#Verb <<---
+		dpkg -i turbovnc*.deb
+		apt install -f
+		---
+
+*** Installing TurboVNC for a Single User
+#OPT: noList! plain!
+
+Download the appropriate binary package, as above, then execute the following
+commands:
+
+	RPM-based systems :: {:}
+	#Pverb <<---
+	mkdir ~/turbovnc{nl}cd ~/turbovnc{nl}rpm2cpio __full/path/of/turbovnc*.rpm__ | cpio -idv
+	---
+
+	Debian-based systems :: {:}
+	#Pverb <<---
+	dpkg-deb --extract __full/path/of/turbovnc*.deb__ ~/turbovnc
+	---
+
+Add {file: ~/turbovnc} to any paths specified in this document.
+
+	!!! If using the TurboVNC Session Manager, set the TurboVNC Viewer's
+	''ServerDir'' parameter to ''"~/turbovnc/opt/TurboVNC"''.  (''~'' must be
+	quoted or escaped if the parameter is specified on the command line.)
+
+	!!! The TurboVNC security configuration file will not work when TurboVNC is
+	installed in this manner.
+
+** Installing the TurboVNC Viewer on macOS
+
+	#. Download the TurboVNC Mac disk image
+		({file: TurboVNC-{val: _VERSION}-x86_64.dmg} for Intel CPUs or
+		{file: TurboVNC-{val: _VERSION}-arm64.dmg} for Apple silicon CPUs) from the
+		[[https://github.com/TurboVNC/turbovnc/releases][Releases area]*] of the
+		[[https://github.com/TurboVNC/turbovnc][TurboVNC GitHub project page]*].
+
+	#. Open the disk image, then open {file: TurboVNC.pkg} inside the disk image.
+		Follow the instructions to install the Mac TurboVNC Viewer.
+
+** Installing the TurboVNC Viewer on Windows
+
+	#. Download the TurboVNC Windows installer package
+		({file: TurboVNC-{val: _VERSION}.exe}) from the
+		[[https://github.com/TurboVNC/turbovnc/releases][Releases area]*] of the
+		[[https://github.com/TurboVNC/turbovnc][TurboVNC GitHub project page]*].
+
+	#. Run the TurboVNC installer.  The installation of TurboVNC should be
+		self-explanatory.  The only configuration option is the directory into
+		which you want the files to be installed.
+
+** Installing TurboVNC from Source
+
+If you are using a Linux/Un*x platform for which there is not a pre-built
+TurboVNC binary package available, then download the TurboVNC source tarball
+({file: turbovnc-{val: _VERSION}.tar.gz}) from the
+[[https://github.com/TurboVNC/turbovnc/releases][Releases area]*] of the
+[[https://github.com/TurboVNC/turbovnc][TurboVNC GitHub project page]*],
+uncompress it, {pcode: cd turbovnc-{val: _VERSION}}, and read
+{file: BUILDING.md} for further instructions on how to build TurboVNC from
+source.
+
+** Uninstalling TurboVNC
+
+*** Linux
+#OPT: noList! plain!
+
+As root, issue one of the following commands:
+
+	RPM-based systems :: {:}
+	#Verb: <<---
+	rpm -e turbovnc
+	---
+
+	Debian-based systems :: {:}
+	#Verb: <<---
+	dpkg -r turbovnc
+	---
+
+*** macOS
+#OPT: noList! plain!
+
+Open the {file: Uninstall TurboVNC} application, located in the
+{file: TurboVNC} Applications folder.  You can also open a terminal and
+execute:
+
+#Verb: <<---
+sudo /opt/TurboVNC/bin/uninstall
+---
+
+*** Windows
+#OPT: noList! plain!
+
+Use the {file: Programs and Features} applet in the Control Panel (or the
+{file: Apps & Features} applet if you are running Windows 10), or select
+{file: Uninstall TurboVNC} in the {file: TurboVNC} Start Menu group.

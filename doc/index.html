@@ -1,0 +1,3107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<meta name="language" content="en">
+<meta name="date" content="2025-10-07T23:09:07">
+<meta name="generator" content="deplate.rb 0.8.5">
+<title>User&rsquo;s Guide for TurboVNC 3.3</title>
+<link rel="start" href="index.html" title="Frontpage">
+<link rel="chapter" href="index.html#hd001" title="1 Legal Information">
+<link rel="chapter" href="index.html#hd002" title="2 Conventions Used in This Document">
+<link rel="chapter" href="index.html#hd003" title="3 Overview">
+<link rel="chapter" href="index.html#hd004" title="4 System Requirements">
+<link rel="chapter" href="index.html#hd005" title="5 Obtaining and Installing TurboVNC">
+<link rel="chapter" href="index.html#hd006" title="6 Using TurboVNC">
+<link rel="chapter" href="index.html#hd007" title="7 Performance and Image Quality">
+<link rel="chapter" href="index.html#hd008" title="8 TurboVNC Security Extensions">
+<link rel="chapter" href="index.html#hd009" title="9 GPU-Accelerated OpenGL (Using VirtualGL with TurboVNC)">
+<link rel="chapter" href="index.html#hd0010" title="10 GPU-Accelerated OpenGL and Vulkan (Using the DRI3 X11 Extension)">
+<link rel="chapter" href="index.html#hd0011" title="11 Compatibility Guide">
+<link rel="chapter" href="index.html#hd0012" title="12 Advanced Configuration">
+<link rel="stylesheet" type="text/css" href="turbovnc.css" title="turbovnc">
+</head>
+<body >
+<a name="#pagetop"></a>
+<div class="title">
+<p class="title">User&rsquo;s Guide for TurboVNC 3.3</p>
+</div>
+<div id="hd">
+<div id="hdBlock" class="hd">
+<ul class="hd">
+    <li class="Itemize-1 hd">
+        <a href="#hd001" class="hd">1 Legal Information</a>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd002" class="hd">2 Conventions Used in This Document</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd002001" class="hd">2.1 Terminology</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd003" class="hd">3 Overview</a>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd004" class="hd">4 System Requirements</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd004001" class="hd">4.1 Linux and Other Un*x Operating 
+                Systems</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd004002" class="hd">4.2 Mac</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd004003" class="hd">4.3 Windows</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd005" class="hd">5 Obtaining and Installing TurboVNC</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd005001" class="hd">5.1 Installing TurboVNC on Linux</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd005002" class="hd">5.2 Installing the TurboVNC Viewer on 
+                macOS</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd005003" class="hd">5.3 Installing the TurboVNC Viewer on 
+                Windows</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd005004" class="hd">5.4 Installing TurboVNC from Source</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd005005" class="hd">5.5 Uninstalling TurboVNC</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd006" class="hd">6 Using TurboVNC</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd006001" class="hd">6.1 The TurboVNC Session Manager</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006002" class="hd">6.2 Manually Starting a TurboVNC 
+                Session</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006003" class="hd">6.3 Choosing a Window Manager</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006004" class="hd">6.4 Manually Connecting to a VNC 
+                Server</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006005" class="hd">6.5 Disconnecting and Killing a TurboVNC 
+                Session</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006006" class="hd">6.6 Using TurboVNC in a Web Browser</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006007" class="hd">6.7 Using SSH to Manually Secure a 
+                TurboVNC Connection</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006008" class="hd">6.8 Requiring SSH Tunneling</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd006009" class="hd">6.9 Running OpenGL Applications</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd0060010" class="hd">6.10 Further Reading</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd007" class="hd">7 Performance and Image Quality</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd007001" class="hd">7.1 Interframe Comparison</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd007002" class="hd">7.2 Advanced Compression Options</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd007003" class="hd">7.3 Lossless Refresh</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd007004" class="hd">7.4 Automatic Lossless Refresh</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd007005" class="hd">7.5 Multithreading</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd008" class="hd">8 TurboVNC Security Extensions</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd008001" class="hd">8.1 Terminology</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd008002" class="hd">8.2 TurboVNC Server Authentication 
+                Methods</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd008003" class="hd">8.3 TurboVNC Viewer Authentication 
+                Schemes</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd008004" class="hd">8.4 Supported Encryption Methods</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd008005" class="hd">8.5 Supported Security Types</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd008006" class="hd">8.6 Enabling Security Types</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd008007" class="hd">8.7 Further Reading</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd009" class="hd">9 GPU-Accelerated OpenGL (Using VirtualGL 
+        with TurboVNC)</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd009001" class="hd">9.1 Using VirtualGL on a TurboVNC Host</a>
+                <ul class="hd">
+                    <li class="Itemize-5 hd">
+                        <a href="#hd009001002" class="hd">9.1.2 Running the Window Manager Using 
+                        VirtualGL</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd009002" class="hd">9.2 Using VirtualGL on a Machine Other 
+                Than a TurboVNC Host</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd009003" class="hd">9.3 NV-CONTROL Emulation</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd0010" class="hd">10 GPU-Accelerated OpenGL and Vulkan (Using 
+        the DRI3 X11 Extension)</a>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd0011" class="hd">11 Compatibility Guide</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd0011001" class="hd">11.1 TightVNC or TigerVNC Servers</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd0011002" class="hd">11.2 TightVNC or TigerVNC Viewers</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd0011003" class="hd">11.3 RealVNC</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 hd">
+        <a href="#hd0012" class="hd">12 Advanced Configuration</a>
+        <ul class="hd">
+            <li class="Itemize-3 hd">
+                <a href="#hd0012001" class="hd">12.1 Server Settings</a>
+            </li>
+            <li class="Itemize-3 hd">
+                <a href="#hd0012002" class="hd">12.2 Viewer Settings</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+</div></div>
+<a name="file000"></a>
+<p><br /></p>
+
+<hr class="break" />
+
+
+<h1 id="hd001"><a name="file001"></a>1&nbsp;Legal Information</h1>
+
+<p><img src="somerights20.png" alt="somerights20" class="inline" id="imgid_0" name="imgid_0"/></p>
+
+<p>This document and all associated illustrations are licensed under the 
+<span class="remote"><a href="https://creativecommons.org/licenses/by/2.5" target="_blank" class="remote">Creative 
+Commons Attribution 2.5 License</a></span><a name="idx001"></a>.  Any 
+works that contain material derived from this document must cite The 
+VirtualGL Project as the source of the material and list the current URL 
+for the TurboVNC web site.</p>
+
+<p>The official TurboVNC binaries contain libjpeg-turbo, which is based in 
+part on the work of the Independent JPEG Group.</p>
+
+<p>TurboVNC is licensed under the <a href="LICENSE.txt" target="_blank">GNU 
+General Public License, v2</a><a name="idx002"></a>.</p>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd002"><a name="file002"></a>2&nbsp;Conventions Used in This Document</h1>
+
+<p>This document assumes that TurboVNC will be installed in the default 
+directory (<strong class="filename">/opt/TurboVNC</strong> on Linux/Un*x 
+and Mac systems and <strong class="filename">c:\Program 
+Files\TurboVNC</strong> on Windows systems.)  If your installation of 
+TurboVNC resides in a different directory, then adjust the instructions 
+accordingly.</p>
+
+
+<h2 id="hd002001">2.1&nbsp;Terminology</h2>
+
+<dl class="Description">
+    <dt class="Description-1 Description">VNC server (sometimes just &ldquo;server&rdquo;)</dt>
+    <dd class="Description-1 Description">
+        A computer program, implementing the Remote Framebuffer (RFB) protocol 
+        and usually designed to run as a background process, that provides an 
+        interactive remote desktop environment through which authenticated users 
+        can run graphical programs remotely from other computers on the network.  
+        VNC servers can be implemented as single-user screen scrapers, which 
+        transmit the contents of the host&rsquo;s physical display (most common 
+        with Windows and Mac VNC servers), or as virtual display servers, which 
+        provide isolated remote desktop environments for an arbitrary number of 
+        simultaneous users on the same host (most common with Un*x VNC servers.)
+    </dd>
+    <dt class="Description-1 Description">VNC host (sometimes just &ldquo;host&rdquo;)</dt>
+    <dd class="Description-1 Description">
+        The machine on which a VNC server is running
+    </dd>
+    <dt class="Description-1 Description">VNC viewer (sometimes just &ldquo;viewer&rdquo;)</dt>
+    <dd class="Description-1 Description">
+        A computer program, implementing the Remote Framebuffer (RFB) protocol, 
+        that connects to a VNC server running on another computer, thus allowing 
+        users to run graphical programs remotely.
+    </dd>
+    <dt class="Description-1 Description">client machine (sometimes just &ldquo;client&rdquo;)</dt>
+    <dd class="Description-1 Description">
+        The machine on which a VNC viewer is running
+    </dd>
+    <dt class="Description-1 Description">VNC session (sometimes just &ldquo;session&rdquo;)</dt>
+    <dd class="Description-1 Description">
+        A specific instance of a Un*x VNC server (Xvnc.)  Each instance of an 
+        Xvnc server, including the TurboVNC Server, acts as an independent 
+        virtual X server, listening on a unique X11 display number for 
+        connections from X11 clients and listening on a unique TCP port number 
+        or Unix domain socket for connections from VNC viewers.  Multiple 
+        simultaneous VNC sessions can exist on a given host, under any number of 
+        different user accounts.
+    </dd>
+</dl>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd003"><a name="file003"></a>3&nbsp;Overview</h1>
+
+<p>TurboVNC is a derivative of VNC (Virtual Network Computing) that is 
+tuned to provide peak performance for 3D and video workloads.  TurboVNC 
+was originally a fork of 
+<span class="remote"><a href="https://tightvnc.com" target="_blank" class="remote">TightVNC</a></span><a name="idx003"></a> 
+1.3.x.  However, the current version of TurboVNC contains a modern X 
+server code base (based on X.org) and a variety of other 
+<span class="remote"><a href="https://turbovnc.org/About/Features" target="_blank" class="remote">notable 
+features</a></span><a name="idx004"></a> and fixes relative to TightVNC 
+1.3.x, including a high-performance cross-platform VNC viewer with 
+session management capabilities, as well as some unique features 
+designed specifically for visualization applications.  Some of those 
+features are not available in any other open source Linux/Un*x remote 
+display solutions.  TurboVNC compresses 3D and video workloads 
+significantly better than the &ldquo;tightest&rdquo; compression mode in 
+TightVNC 1.3.x while using only typically 15-20% of the CPU time of the 
+latter.  Using non-default settings, TurboVNC can also match the best 
+compression ratios produced by TightVNC 1.3.x for 2D workloads.  (See 
+Section <a href="#AdvancedCompression" class="ref">7.2</a>.)</p>
+
+<p>All VNC implementations, including TurboVNC, use the RFB (remote 
+framebuffer) protocol to send &ldquo;framebuffer updates&rdquo; from the 
+VNC server to any connected viewers.  Each framebuffer update can 
+contain multiple &ldquo;rectangles&rdquo; (regions that have changed 
+since the last update.)  As with TightVNC, TurboVNC analyzes each 
+rectangle, splits it into multiple &ldquo;subrectangles&rdquo;, and 
+attempts to encode each subrectangle using the &ldquo;subencoding 
+type&rdquo; that will provide the most efficient compression, given the 
+number of unique colors in the subrectangle. The process by which 
+TurboVNC does this is referred to as an &ldquo;encoding method.&rdquo; A 
+rectangle is first analyzed to determine if any significant portion of 
+it is solid, and if so, that portion is encoded as a bounding box and a 
+fill color (&ldquo;Solid subencoding.&rdquo;)  Of the remaining 
+subrectangles, those with only two colors are encoded as a 
+1-bit-per-pixel bitmap with a 2-color palette (&ldquo;Mono 
+subencoding&rdquo;), those with low numbers of unique colors are encoded 
+as a color palette and an 8-bit-per-pixel bitmap (&ldquo;Indexed color 
+subencoding&rdquo;), and subrectangles with high numbers of unique 
+colors are encoded using either JPEG or arrays of RGB pixels (&ldquo;Raw 
+subencoding&rdquo;), depending on the encoding method. zlib can 
+optionally be used to compress the indexed color, mono and raw 
+subrectangles.</p>
+
+<p>Part of TurboVNC&rsquo;s speedup comes from the use of 
+<span class="remote"><a href="https://libjpeg-turbo.org" target="_blank" class="remote">libjpeg-turbo</a></span><a name="idx005"></a>, 
+a SIMD-accelerated JPEG codec. However, TurboVNC also eliminates the 
+CPU-hungry smoothness detection routines that TightVNC uses to determine 
+whether a subrectangle is a good candidate for JPEG compression, and 
+TurboVNC&rsquo;s encoding methods tend to favor the use of JPEG more, 
+since it is now generally the fastest subencoding type.  Furthermore, 
+TurboVNC eliminates buffer copies, it maximizes network efficiency by 
+splitting framebuffer updates into relatively large subrectangles, and 
+it uses only the zlib compression levels that can be shown to have a 
+measurable performance benefit.</p>
+
+<p>TurboVNC is the product of 
+<span class="remote"><a href="https://TurboVNC.org/pmwiki/uploads/About/tighttoturbo.pdf" target="_blank" class="remote">extensive 
+research</a></span><a name="idx006"></a>, in which many different 
+permutations of the TightVNC encoder were benchmarked at the low level 
+against a variety of RFB session captures that simulate real-world 
+application workloads, both 2D and 3D.  TurboVNC&rsquo;s encoding 
+methods have been adopted by 
+<span class="remote"><a href="https://tigervnc.org" target="_blank" class="remote">TigerVNC</a></span><a name="idx007"></a>, 
+<span class="remote"><a href="https://libvnc.github.io" target="_blank" class="remote">LibVNC</a></span><a name="idx008"></a>, 
+<span class="remote"><a href="https://uvnc.com/" target="_blank" class="remote">UltraVNC</a></span><a name="idx009"></a>, 
+and other projects.</p>
+
+<p>TurboVNC, when used with 
+<span class="remote"><a href="https://VirtualGL.org" target="_blank" class="remote">VirtualGL</a></span><a name="idx0010"></a>, 
+provides a highly performant and robust solution for remotely displaying 
+3D applications over all types of networks.</p>
+
+<p>On &ldquo;modern&rdquo; hardware, TurboVNC is capable of streaming 50+ 
+Megapixels/second over a 100 Megabit/second local area network with 
+perceptually lossless image quality.  TurboVNC can stream between 10 and 
+12 Megapixels/second over a 5 Megabit/second broadband connection at 
+reduced (but usable) image quality.</p>
+
+<p>TurboVNC is compatible with other VNC distributions.  See Chapter 
+<a href="#Compatibility" class="ref">11</a> for more information.  The 
+official TurboVNC binaries can be installed onto the same system as 
+other VNC distributions without interference.</p>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd004"><a name="file004"></a>4&nbsp;System Requirements</h1>
+
+
+<h2 id="hd004001">4.1&nbsp;Linux and Other Un*x Operating Systems</h2>
+
+<div class="table">
+<table class="standard">
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard"></th>
+    <th class="head standard">Host</th>
+    <th class="head standard">Client (Linux)</th>
+    <th class="head standard">Client (non-Linux)</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="high standard">CPU</td>
+    <td class="standard"><ul class="Itemize"><li class="Itemize-0">
+    x86-64 or AArch64 required
+</li>
+<li class="Itemize-0">
+    At least two processors or cores recommended
+</li></ul></td>
+    <td class="standard" colspan="2">x86-64 or AArch64 required</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">O/S</td>
+    <td class="standard" colspan="4">TurboVNC should work with a variety of Linux distributions and <span class="remote"><a href="https://freebsd.org" target="_blank" class="remote">FreeBSD</a></span><a name="idx0011"></a>, but currently-supported versions of <span class="remote"><a href="https://redhat.com/products/enterprise-linux" target="_blank" class="remote">Red Hat Enterprise Linux</a></span><a name="idx0012"></a> and its derivatives, <span class="remote"><a href="https://ubuntu.com" target="_blank" class="remote">Ubuntu</a></span><a name="idx0013"></a> LTS, and <span class="remote"><a href="https://suse.com" target="_blank" class="remote">SUSE</a></span><a name="idx0014"></a> Linux Enterprise tend to receive the most attention from the TurboVNC community.</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Other</td>
+    <td class="standard">SSH server (if using the <a href="#TurboVNC_Session_Manager">TurboVNC Session Manager</a><a name="idx0015"></a>)</td>
+    <td class="standard">For optimal performance, the X server should be configured to export True Color (24-bit or 32-bit) visuals.</td>
+    <td class="standard"><ul class="Itemize"><li class="Itemize-0">
+    For optimal performance, the X server should be configured to export 
+    True Color (24-bit or 32-bit) visuals.
+</li>
+<li class="Itemize-0">
+    <span class="remote"><a href="https://www.java.com" target="_blank" class="remote">Oracle 
+    Java</a></span><a name="idx0016"></a> or OpenJDK
+</li></ul></td>
+  </tr>
+</table>
+</div>
+
+
+
+
+<h2 id="hd004002">4.2&nbsp;Mac</h2>
+
+<div class="table">
+<table class="standard">
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard"></th>
+    <th class="head standard">Client</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="high standard">CPU</td>
+    <td class="standard">64-bit Intel or Apple silicon required</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">O/S</td>
+    <td class="standard">macOS 10.12 &ldquo;Sierra&rdquo; or later (Intel); macOS 11 &ldquo;Big Sur&rdquo; or later (Apple silicon)</td>
+  </tr>
+</table>
+</div>
+
+
+
+
+<h2 id="hd004003">4.3&nbsp;Windows</h2>
+
+<div class="table">
+<table class="standard">
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard"></th>
+    <th class="head standard">Client</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="high standard">CPU</td>
+    <td class="standard">x86-64 required</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">O/S</td>
+    <td class="standard">Windows 7 or later</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Other</td>
+    <td class="standard">For optimal performance, the client display should have a 24-bit or 32-bit (True Color) color depth.</td>
+  </tr>
+</table>
+</div>
+
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd005"><a name="file005"></a>5&nbsp;Obtaining and Installing TurboVNC</h1>
+
+
+<h2 id="hd005001">5.1&nbsp;Installing TurboVNC on Linux</h2>
+
+
+<h3 id="hd005001001">Installing TurboVNC</h3>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        Download the appropriate TurboVNC binary package for your system from 
+        the 
+        <span class="remote"><a href="https://github.com/TurboVNC/turbovnc/releases" target="_blank" class="remote">Releases 
+        area</a></span><a name="idx0017"></a> of the 
+        <span class="remote"><a href="https://github.com/TurboVNC/turbovnc" target="_blank" class="remote">TurboVNC 
+        GitHub project page</a></span><a name="idx0018"></a>. RPM and Debian 
+        packages are provided for Linux distributions that contain GLIBC 2.17 or 
+        later. <br />
+    </li>
+    <li class="Ordered-1 Ordered">
+        <code>cd</code> to the directory where you downloaded the binary 
+        package, and issue one of the following commands as root:
+        <dl class="Description">
+            <dt class="Description-3 Description">RPM-based systems using YUM</dt>
+            <dd class="Description-3 Description">
+<pre class="verbatim">
+yum&nbsp;install&nbsp;turbovnc*.rpm
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">RPM-based systems using DNF</dt>
+            <dd class="Description-3 Description">
+<pre class="verbatim">
+dnf&nbsp;install&nbsp;turbovnc*.rpm
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">RPM-based systems using YaST2</dt>
+            <dd class="Description-3 Description">
+<pre class="verbatim">
+yast2&nbsp;--install&nbsp;turbovnc*.rpm
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">Other RPM-based systems (dependencies will not be installed automatically)</dt>
+            <dd class="Description-3 Description">
+<pre class="verbatim">
+rpm&nbsp;-U&nbsp;turbovnc*.rpm
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">Debian-based systems</dt>
+            <dd class="Description-3 Description">
+<pre class="verbatim">
+dpkg&nbsp;-i&nbsp;turbovnc*.deb
+apt&nbsp;install&nbsp;-f
+</pre>
+
+            </dd>
+        </dl>
+    </li>
+</ol>
+
+
+
+<h3 id="hd005001002">Installing TurboVNC for a Single User</h3>
+
+<p>Download the appropriate binary package, as above, then execute the 
+following commands:</p>
+
+<dl class="Description">
+    <dt class="Description-1 Description">RPM-based systems</dt>
+    <dd class="Description-1 Description">
+        <pre class="verbatim">mkdir ~/turbovnc<br />cd ~/turbovnc<br />rpm2cpio <em>full/path/of/turbovnc*.rpm</em> | cpio -idv</pre>
+    </dd>
+    <dt class="Description-1 Description">Debian-based systems</dt>
+    <dd class="Description-1 Description">
+        <pre class="verbatim">dpkg-deb &ndash;extract <em>full/path/of/turbovnc*.deb</em> ~/turbovnc</pre>
+    </dd>
+</dl>
+
+<p>Add <strong class="filename">~/turbovnc</strong> to any paths specified 
+in this document.</p>
+
+<div class="important"><p class="important">
+If using the TurboVNC Session Manager, set the TurboVNC Viewer&rsquo;s <code>ServerDir</code> parameter to <code>&quot;~/turbovnc/opt/TurboVNC&quot;</code>.  (<code>~</code> must be quoted or escaped if the parameter is specified on the command line.)
+</p></div>
+
+<div class="important"><p class="important">
+The TurboVNC security configuration file will not work when TurboVNC is installed in this manner.
+</p></div>
+
+
+
+<h2 id="hd005002">5.2&nbsp;Installing the TurboVNC Viewer on macOS</h2>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        Download the TurboVNC Mac disk image 
+        (<strong class="filename">TurboVNC-3.2.90-x86_64.dmg</strong> for Intel 
+        CPUs or <strong class="filename">TurboVNC-3.2.90-arm64.dmg</strong> for 
+        Apple silicon CPUs) from the 
+        <span class="remote"><a href="https://github.com/TurboVNC/turbovnc/releases" target="_blank" class="remote">Releases 
+        area</a></span><a name="idx0019"></a> of the 
+        <span class="remote"><a href="https://github.com/TurboVNC/turbovnc" target="_blank" class="remote">TurboVNC 
+        GitHub project page</a></span><a name="idx0020"></a>.
+    </li>
+    <li class="Ordered-1 Ordered">
+        Open the disk image, then open 
+        <strong class="filename">TurboVNC.pkg</strong> inside the disk image. 
+        Follow the instructions to install the Mac TurboVNC Viewer.
+    </li>
+</ol>
+
+
+
+<h2 id="hd005003">5.3&nbsp;Installing the TurboVNC Viewer on Windows</h2>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        Download the TurboVNC Windows installer package 
+        (<strong class="filename">TurboVNC-3.2.90.exe</strong>) from the 
+        <span class="remote"><a href="https://github.com/TurboVNC/turbovnc/releases" target="_blank" class="remote">Releases 
+        area</a></span><a name="idx0021"></a> of the 
+        <span class="remote"><a href="https://github.com/TurboVNC/turbovnc" target="_blank" class="remote">TurboVNC 
+        GitHub project page</a></span><a name="idx0022"></a>.
+    </li>
+    <li class="Ordered-1 Ordered">
+        Run the TurboVNC installer.  The installation of TurboVNC should be 
+        self-explanatory.  The only configuration option is the directory into 
+        which you want the files to be installed.
+    </li>
+</ol>
+
+
+
+<h2 id="hd005004">5.4&nbsp;Installing TurboVNC from Source</h2>
+
+<p>If you are using a Linux/Un*x platform for which there is not a 
+pre-built TurboVNC binary package available, then download the TurboVNC 
+source tarball 
+(<strong class="filename">turbovnc-3.2.90.tar.gz</strong>) from the 
+<span class="remote"><a href="https://github.com/TurboVNC/turbovnc/releases" target="_blank" class="remote">Releases 
+area</a></span><a name="idx0023"></a> of the 
+<span class="remote"><a href="https://github.com/TurboVNC/turbovnc" target="_blank" class="remote">TurboVNC 
+GitHub project page</a></span><a name="idx0024"></a>, uncompress it, 
+<code>cd turbovnc-3.2.90</code>, and read 
+<strong class="filename">BUILDING.md</strong> for further instructions 
+on how to build TurboVNC from source.</p>
+
+
+
+<h2 id="hd005005">5.5&nbsp;Uninstalling TurboVNC</h2>
+
+
+<h3 id="hd005005001">Linux</h3>
+
+<p>As root, issue one of the following commands:</p>
+
+<dl class="Description">
+    <dt class="Description-1 Description">RPM-based systems</dt>
+    <dd class="Description-1 Description">
+<pre class="verbatim">
+rpm&nbsp;-e&nbsp;turbovnc
+</pre>
+
+    </dd>
+    <dt class="Description-1 Description">Debian-based systems</dt>
+    <dd class="Description-1 Description">
+<pre class="verbatim">
+dpkg&nbsp;-r&nbsp;turbovnc
+</pre>
+
+    </dd>
+</dl>
+
+
+
+<h3 id="hd005005002">macOS</h3>
+
+<p>Open the <strong class="filename">Uninstall TurboVNC</strong> 
+application, located in the <strong class="filename">TurboVNC</strong> 
+Applications folder.  You can also open a terminal and execute:</p>
+
+<pre class="verbatim">
+sudo&nbsp;/opt/TurboVNC/bin/uninstall
+</pre>
+
+
+
+<h3 id="hd005005003">Windows</h3>
+
+<p>Use the <strong class="filename">Programs and Features</strong> applet 
+in the Control Panel (or the <strong class="filename">Apps &amp; 
+Features</strong> applet if you are running Windows 10), or select 
+<strong class="filename">Uninstall TurboVNC</strong> in the 
+<strong class="filename">TurboVNC</strong> Start Menu group.</p>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd006"><a name="file006"></a>6&nbsp;Using TurboVNC</h1>
+
+<p><a name="TurboVNC_Usage"></a></p>
+
+
+<h2 id="hd006001">6.1&nbsp;The TurboVNC Session Manager</h2>
+
+<p><a name="TurboVNC_Session_Manager"></a></p>
+
+<p>The TurboVNC Viewer, like any VNC viewer, can be used to connect to any 
+VNC server.  However, the TurboVNC Viewer also includes the TurboVNC 
+Session Manager, which can be used with the TurboVNC Server to remotely 
+start or kill a TurboVNC session, list all TurboVNC sessions running 
+under a particular user account on a particular host, and choose a 
+TurboVNC session to which to connect.  The TurboVNC Session Manager uses 
+the TurboVNC Viewer&rsquo;s built-in SSH client, which supports OpenSSH 
+config files and password-less public key authentication (using 
+ssh-agent or Pageant.)</p>
+
+
+<h3 id="hd006001001">Procedure</h3>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        On the client machine, start the TurboVNC Viewer.
+        <dl class="Description">
+            <dt class="Description-3 Description">Linux/Un*x clients</dt>
+            <dd class="Description-3 Description">
+                 Open a new terminal/xterm and type
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncviewer
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">Mac clients</dt>
+            <dd class="Description-3 Description">
+                 Open the <strong class="filename">TurboVNC Viewer</strong> application, 
+                 located in the <strong class="filename">TurboVNC</strong> Applications 
+                 folder, or open a new terminal and type
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncviewer
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">Windows clients</dt>
+            <dd class="Description-3 Description">
+                 Select <strong class="filename">TurboVNC Viewer</strong> in the 
+                 <strong class="filename">TurboVNC</strong> Start Menu group, or open a 
+                 new command prompt and type
+<pre class="verbatim">
+c:\Program&nbsp;Files\TurboVNC\vncviewer.bat
+</pre>
+
+            </dd>
+        </dl>
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        A small dialog box will appear. <br /><br /> 
+        <img src="newconn-sessmgr.png" alt="newconn-sessmgr" class="inline" id="imgid_1" name="imgid_1"/> 
+        <br /><br /> Enter the hostname or IP address of the TurboVNC host in 
+        the &ldquo;VNC server&rdquo; field, then click &ldquo;Connect&rdquo;. 
+        <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        The TurboVNC Session Manager will connect to the host using SSH, and it 
+        will prompt for an SSH private key passphrase or an SSH password, if 
+        necessary.  (The TurboVNC Viewer&rsquo;s built-in SSH client will first 
+        try to fetch the private key passphrase from ssh-agent or Pageant, if 
+        either is running.)
+        <div class="important"><p class="important">
+        You can specify the SSH username, if it differs from your local username, by prefixing the hostname/IP address with <code><em>user</em>@</code>, where <em><code>user</code></em> is the SSH username.
+        </p></div>
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        If no TurboVNC sessions are currently running under your user account on 
+        the TurboVNC host, then the session manager will: <br /><br />
+        <ul class="Itemize">
+            <li class="Itemize-3 Itemize asterisk">
+                start a new session
+            </li>
+            <li class="Itemize-3 Itemize asterisk">
+                generate a new one-time password (OTP) for the session
+            </li>
+            <li class="Itemize-3 Itemize asterisk">
+                automatically configure the TurboVNC Viewer so that it tunnels the VNC 
+                connection through SSH (reusing the SSH channel that the session manager 
+                already opened) and authenticates using the newly-generated OTP
+            </li>
+            <li class="Itemize-3 Itemize asterisk">
+                connect to the session
+            </li>
+        </ul>
+        <br class="itempara" />Once connected, a TurboVNC desktop window should appear on your client 
+        machine.  This window contains a virtual desktop with which you can 
+        interact to launch X-Windows applications on the TurboVNC host. 
+        <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        If one or more TurboVNC sessions are currently running under your user 
+        account on the TurboVNC host, then the session manager will enumerate 
+        the sessions and display a dialog similar to the following, allowing you 
+        to manage the sessions remotely, to start a new session, or to choose a 
+        session to which to connect: <br /><br /> 
+        <img src="sessmgr.png" alt="sessmgr" class="inline" id="imgid_2" name="imgid_2"/> 
+        <br /><br /> Upon choosing a session to which to connect, the session 
+        manager will (as described above) automatically generate a new OTP for 
+        the session and configure the TurboVNC Viewer so that it tunnels the VNC 
+        connection through SSH and authenticates using the newly-generated OTP. 
+        <br /><br /> One-time passwords can be used with any VNC viewer, so 
+        generating a new OTP for a TurboVNC session (using the &ldquo;New 
+        OTP&rdquo; button) is a convenient way of allowing colleagues to 
+        temporarily access the session.  Generating a new OTP for a TurboVNC 
+        session is also useful when using 
+        <a href="#noVNC">noVNC</a><a name="idx0025"></a>.  If 
+        &ldquo;View-only&rdquo; is checked, then users who authenticate using 
+        the new OTP will not be able to remotely control the session.
+        <div class="important"><p class="important">
+        The TurboVNC Session Manager automatically uses SSH tunneling and OTP authentication by default, but you can set the TurboVNC Viewer&rsquo;s <code>NoSessMgrAuto</code> parameter to disable this behavior, thus allowing any authentication/encryption method to be used.  Additional parameters can be used to specify the port on which the SSH server is listening and the location of the SSH private key file.  The OpenSSH config file (<strong class="filename">~/.ssh/config</strong> by default) can also be used to specify those parameters persistently for a given host.
+        </p></div>
+        <div class="important"><p class="important">
+        The TurboVNC Viewer&rsquo;s <code>ServerDir</code> and <code>ServerArgs</code> parameters can be used to specify a non-default installation path for the TurboVNC Server or additional arguments to pass to the TurboVNC Server when starting new sessions.  TurboVNC Server arguments can also be specified on the host using the system-wide or per-user <strong class="filename">turbovncserver.conf</strong> file.
+        </p></div>
+    </li>
+</ul>
+
+
+
+<h2 id="hd006002">6.2&nbsp;Manually Starting a TurboVNC Session</h2>
+
+
+<h3 id="hd006002001">Procedure</h3>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        Open a new Command Prompt/terminal window on your client machine.
+    </li>
+    <li class="Ordered-1 Ordered">
+        In the new Command Prompt/terminal window, open a Secure Shell (SSH) 
+        session into the TurboVNC host:
+        <pre class="verbatim">ssh <em>user</em>@<em>host</em></pre>
+        Replace <em><code>user</code></em> with your username on the TurboVNC 
+        host and <em><code>host</code></em> with the hostname or IP address of 
+        the host.
+    </li>
+    <li class="Ordered-1 Ordered">
+        In the SSH session, start a TurboVNC session:
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncserver
+</pre>
+
+    </li>
+    <li class="Ordered-1 Ordered">
+        Make a note of the X display number that the TurboVNC session is 
+        occupying, for instance: <br /><br /> 
+        <code>Desktop&nbsp;'TurboVNC:&nbsp;my_host:1&nbsp;(my_user)'&nbsp;started&nbsp;on&nbsp;display&nbsp;my_host:1</code> 
+        <br /><br /> If this is the first time that a TurboVNC session has ever 
+        been run under this user account, and if VNC password authentication is 
+        enabled for the session, then TurboVNC will prompt for a VNC password.
+    </li>
+    <li class="Ordered-1 Ordered">
+        The SSH session can now be exited, if desired.
+    </li>
+</ol>
+
+
+
+<h2 id="hd006003">6.3&nbsp;Choosing a Window Manager</h2>
+
+<p>By default, a window manager is launched in a TurboVNC session after the 
+session is started.  You can specify the window manager by passing 
+<code>-wm <em>window-manager</em></code> to <code>vncserver</code> or 
+setting <code>$wm=&ldquo;<em>window-manager</em>&rdquo;;</code> in 
+<strong class="filename">turbovncserver.conf</strong>, where 
+<em><code>window-manager</code></em> corresponds to a session desktop 
+file located in the X sessions directory 
+(<strong class="filename">/usr/share/xsessions</strong>, 
+<strong class="filename">/usr/share/wayland-sessions</strong>, or 
+<strong class="filename">/usr/local/share/xsessions</strong>) without 
+the <strong class="filename">.desktop</strong> extension.  (For example, 
+pass <code>-wm&nbsp;xfce</code> to <code>vncserver</code> or set 
+<code>$wm=&quot;xfce&quot;;</code> in 
+<strong class="filename">turbovncserver.conf</strong> to launch the 
+window manager specified in 
+<strong class="filename">xfce.desktop</strong>.)  If unspecified, the 
+window manager defaults to</p>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        <code>gnome</code> if <strong class="filename">gnome.desktop</strong> 
+        exists in the X sessions directory, or
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        <code>ubuntu</code> if <strong class="filename">ubuntu.desktop</strong> 
+        exists in the X sessions directory, or
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        <code>mate</code> if <strong class="filename">mate.desktop</strong> 
+        exists in the X sessions directory, or
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        <code>xfce</code> if <strong class="filename">xfce.desktop</strong> 
+        exists in the X sessions directory.
+    </li>
+</ul>
+
+<p>Specifying <code>2d</code> as the window manager launches GNOME Classic 
+or Flashback if <strong class="filename">gnome-classic.desktop</strong> 
+or <strong class="filename">gnome-flashback-metacity.desktop</strong> 
+exists in the X sessions directory.</p>
+
+<p>The TurboVNC Server can run compositing window managers, such as GNOME 
+3+ or KDE 5+, using its <a href="#SoftwareOpenGL">built-in software 
+OpenGL implementation</a><a name="idx0026"></a>. However, for 
+performance reasons, it is recommended that GPU acceleration (with 
+<a href="#VGLWM">VirtualGL</a><a name="idx0027"></a> or 
+<a href="#DRI3">DRI3</a><a name="idx0028"></a>) be used with compositing 
+window managers.  A non-compositing window manager such as MATE or Xfce 
+is recommended if GPU acceleration will not be used.</p>
+
+<p>Refer to 
+<span class="remote"><a href="https://www.turbovnc.org/Documentation/Compatibility32" target="_blank" class="remote">this 
+report</a></span><a name="idx0029"></a> for an up-to-date list of window 
+managers that have been tested with this version of the TurboVNC Server, 
+how to configure the TurboVNC Server to use those window managers, and a 
+list of known compatibility issues.</p>
+
+
+
+<h2 id="hd006004">6.4&nbsp;Manually Connecting to a VNC Server</h2>
+
+
+<h3 id="hd006004001">Procedure</h3>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        On the client machine, start the TurboVNC Viewer.
+        <dl class="Description">
+            <dt class="Description-3 Description">Linux/Un*x clients</dt>
+            <dd class="Description-3 Description">
+                 Open a new terminal/xterm and type
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncviewer
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">Mac clients</dt>
+            <dd class="Description-3 Description">
+                 Open the <strong class="filename">TurboVNC Viewer</strong> application, 
+                 located in the <strong class="filename">TurboVNC</strong> Applications 
+                 folder, or open a new terminal and type
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncviewer
+</pre>
+
+            </dd>
+            <dt class="Description-3 Description">Windows clients</dt>
+            <dd class="Description-3 Description">
+                 Select <strong class="filename">TurboVNC Viewer</strong> in the 
+                 <strong class="filename">TurboVNC</strong> Start Menu group, or open a 
+                 new command prompt and type
+<pre class="verbatim">
+c:\Program&nbsp;Files\TurboVNC\vncviewer.bat
+</pre>
+
+            </dd>
+        </dl>
+    </li>
+    <li class="Ordered-1 Ordered">
+        A small dialog box will appear. <br /><br /> 
+        <img src="newconn.png" alt="newconn" class="inline" id="imgid_3" name="imgid_3"/> 
+        <br /><br /> Enter the X display name (hostname, or IP address, and 
+        display number) of the VNC server or TurboVNC session in the &ldquo;VNC 
+        server&rdquo; field, then click &ldquo;Connect&rdquo;.
+    </li>
+    <li class="Ordered-1 Ordered">
+        Another dialog box appears, prompting for the password (if Standard VNC 
+        authentication is being used) or for the username and password (if Unix 
+        Login authentication is being used.) <br /><br />
+        <div class="table">
+        <table class="standard">
+          <tr class="standard">
+            <td class="standard">Standard VNC Authentication Dialog</td>
+            <td class="standard"><img src="vncauth.png" alt="vncauth" class="inline" id="imgid_4" name="imgid_4"/></td>
+          </tr>
+          <tr class="standard">
+            <td class="standard">Unix Login Authentication Dialog</td>
+            <td class="standard"><img src="unixauth.png" alt="unixauth" class="inline" id="imgid_5" name="imgid_5"/></td>
+          </tr>
+        </table>
+        </div>
+        
+        <br /> Enter the VNC server password or the Unix username/password and 
+        press Enter. <br /><br /> A VNC desktop window should appear on your 
+        client machine.  This window contains a virtual desktop with which you 
+        can interact to launch graphical applications on the VNC host.
+        <div class="important"><p class="important">
+        If you are connecting to a non-VeNCrypt-compatible VNC server, then the authentication dialog will warn you that the connection is not encrypted: <br /><br /> <img src="vncauth-insecure.png" alt="vncauth-insecure" class="inline" id="imgid_6" name="imgid_6"/> <br /><br /> You should never use Unix Login authentication with an unencrypted connection.  Instead, tunnel the connection through SSH.  (See Section <a href="#Secure_TurboVNC_Usage" class="ref">6.7</a> below for more details.)
+        </p></div>
+    </li>
+</ol>
+
+
+
+<h2 id="hd006005">6.5&nbsp;Disconnecting and Killing a TurboVNC Session</h2>
+
+<p>Closing the TurboVNC Viewer disconnects from the TurboVNC session, but 
+the TurboVNC session will remain running on the TurboVNC host (as will 
+any applications that you may have started within the session), and you 
+can reconnect to the session at any time.</p>
+
+<p>If the TurboVNC session was created with default settings, then the 
+easiest way to kill it is to log out of the window manager running in 
+the session.  You can also use the 
+<a href="#TurboVNC_Session_Manager">TurboVNC Session 
+Manager</a><a name="idx0030"></a> to remotely kill TurboVNC sessions, or 
+you can type the following command:</p>
+
+<pre class="verbatim">/opt/TurboVNC/bin/vncserver -kill :<em>n</em></pre>
+<p>from a terminal in the TurboVNC session or from an SSH session on the 
+host. Replace <em><code>n</code></em> with the X display number of the 
+TurboVNC session you want to kill.</p>
+
+<p>To list the X display numbers and process ID&rsquo;s of all TurboVNC 
+sessions currently running under your user account on a particular host, 
+type the following command:</p>
+
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncserver&nbsp;-list
+</pre>
+
+<p>from a terminal in the TurboVNC session or from an SSH session on the 
+host.</p>
+
+
+
+<h2 id="hd006006">6.6&nbsp;Using TurboVNC in a Web Browser</h2>
+
+<p><a name="noVNC"></a></p>
+
+<p>When a TurboVNC session is started, the <code>vncserver</code> script 
+can optionally start a simple web server that serves up 
+<span class="remote"><a href="https://novnc.com" target="_blank" class="remote">noVNC</a></span><a name="idx0031"></a>, 
+an HTML 5/JavaScript VNC viewer that works in any web browser (with 
+reduced performance and features relative to the TurboVNC Viewer.)  This 
+allows you to easily connect to a TurboVNC session from a machine that 
+does not have the TurboVNC Viewer installed (including mobile devices.)</p>
+
+<p>To launch noVNC along with a TurboVNC session, pass <code>-novnc 
+<em>dir</em></code> to <code>vncserver</code> when starting the session, 
+where <em><code>dir</code></em> is the directory containing noVNC.  
+(Setting the <code>$noVNC</code> variable in 
+<strong class="filename">turbovncserver.conf</strong> has the same 
+effect.)  The <code>vncserver</code> script will print the noVNC URL, 
+which will be of the form:</p>
+
+<pre class="verbatim">http://<em>host</em>:<em>5800+n</em>/vnc.html?host=<em>host</em>&amp;port=<em>5900+n</em></pre>
+<p>or</p>
+
+<pre class="verbatim">https://<em>host</em>:<em>5800+n</em>/vnc.html?host=<em>host</em>&amp;port=<em>5900+n</em>&amp;encrypt=1</pre>
+<p>where <em><code>host</code></em> is the hostname or IP address of the 
+TurboVNC host and <em><code>n</code></em> is the X display number of the 
+TurboVNC session.</p>
+
+<p>Point your web browser to that URL in order to access the TurboVNC 
+session. You can optionally pass <code>-x509cert 
+<em>certificate-file</em> -x509key <em>private-key-file</em></code> to 
+<code>vncserver</code> (or set the <code>$x509CertFile</code> and 
+<code>$x509KeyFile</code> variables in 
+<strong class="filename">turbovncserver.conf</strong>) to encrypt both 
+the HTTP and RFB connections.  See the <code>vncserver</code> man page 
+for more details.</p>
+
+<div class="important"><p class="important">
+NOTE: noVNC only supports VNC Password authentication, so it is strongly recommended that it be used only with one-time passwords unless the connections are encrypted.
+</p></div>
+
+
+
+<h2 id="hd006007">6.7&nbsp;Using SSH to Manually Secure a TurboVNC Connection</h2>
+
+<p><a name="Secure_TurboVNC_Usage"></a></p>
+
+<p>If the <a href="#TurboVNC_Session_Manager">TurboVNC Session 
+Manager</a><a name="idx0032"></a> is not being used, then the connection 
+between the TurboVNC Server and the TurboVNC Viewer will, by default, 
+use Anonymous TLS encryption.  (Refer to Chapter 
+<a href="#Security_Extensions" class="ref">8</a>.)  However, it may be 
+preferable to secure the TurboVNC connection using SSH rather than 
+Anonymous TLS encryption, particularly if one does not want to open 
+additional ports in the host&rsquo;s firewall.  This can easily be 
+accomplished using the TurboVNC Viewer&rsquo;s <code>Tunnel</code> and 
+<code>Jump</code> parameters (or the equivalent GUI options, which are 
+located under the &ldquo;Security&rdquo; tab in the TurboVNC Viewer 
+Options dialog.)</p>
+
+<p>The TurboVNC Viewer&rsquo;s <code>Tunnel</code> and <code>Jump</code> 
+parameters take advantage of the port forwarding feature in SSH.  For 
+instance, running</p>
+
+<pre class="verbatim"><em>vncviewer</em> -tunnel <em>user</em>@<em>host</em>:<em>n</em></pre>
+<p>is the equivalent of running</p>
+
+<pre class="verbatim">ssh -L <em>fp</em>:localhost:<em>5900+n</em> <em>user</em>@<em>host</em>
+<em>vncviewer</em> localhost::<em>fp</em></pre>
+<p>where <em><code>fp</code></em> is a free TCP port on the client machine 
+(this is automatically determined by the TurboVNC Viewer.)  Similarly, 
+running</p>
+
+<pre class="verbatim"><em>vncviewer</em> -jump <em>jump-user</em>@<em>jump-host</em>:<em>jump-port</em> <em>vnc-user</em>@<em>vnc-host</em>:<em>n</em></pre>
+<p>is the equivalent of running</p>
+
+<pre class="verbatim">ssh -J <em>jump-user</em>@<em>jump-host</em>:<em>jump-port</em> -L <em>fp</em>:localhost:<em>5900+n</em> <em>vnc-user</em>@<em>vnc-host</em>
+<em>vncviewer</em> localhost::<em>fp</em></pre>
+<div class="important"><p class="important">
+In the above examples, <em><code>vncviewer</code></em> is the command used to launch the TurboVNC Viewer&ndash; <code>/opt/TurboVNC/bin/vncviewer</code> on Linux/Un*x and Mac systems and <code>c:\Program&nbsp;Files\TurboVNC\vncviewer.bat</code> on Windows systems.
+</p></div>
+
+<div class="important"><p class="important">
+When using the <code>Jump</code> parameter, the VNC host is specified from the point of view of the gateway host.
+</p></div>
+
+
+
+<h2 id="hd006008">6.8&nbsp;Requiring SSH Tunneling</h2>
+
+<p>Passing an argument of <code>-localhost</code> to <code>vncserver</code> 
+will force the TurboVNC session to accept inbound connections only from 
+the TurboVNC host.  This effectively forces SSH tunneling to be used for 
+remote connections.  If the <code>no-remote-connections</code> directive 
+is set in the TurboVNC security configuration file, then that has the 
+effect of enabling the <code>-localhost</code> option for all new 
+TurboVNC sessions that are started on the host.</p>
+
+<p>Passing an argument of <code>-noreverse</code> to <code>vncserver</code> 
+will disable the ability to make outbound (reverse) connections from the 
+TurboVNC session.  If the <code>no-reverse-connections</code> directive 
+is set in the TurboVNC security configuration file, then that has the 
+effect of enabling the <code>-noreverse</code> option for all new 
+TurboVNC sessions that are started on the host.</p>
+
+<p>If the host is configured such that it only allows SSH connections, then 
+disallowing the TLS* security types on a system-wide basis (by setting 
+the <code>permitted-security-types</code> directive in the TurboVNC 
+security configuration file) is recommended.  Otherwise, when using the 
+TurboVNC Viewer with default settings, the connection will have 
+redundant encryption.</p>
+
+<p><img src="vncauth-redundant.png" alt="vncauth-redundant" class="inline" id="imgid_7" name="imgid_7"/></p>
+
+<p>Note that only the OTP security type is needed when using the 
+<a href="#TurboVNC_Session_Manager">TurboVNC Session 
+Manager</a><a name="idx0033"></a> with its default settings.</p>
+
+
+
+<h2 id="hd006009">6.9&nbsp;Running OpenGL Applications</h2>
+
+<p><a name="SoftwareOpenGL"></a></p>
+
+<p>The TurboVNC Server includes a software GLX/OpenGL implementation that 
+can be used for casual 3D rendering.  This implementation uses the 
+swrast DRI driver provided by Mesa 8.x and later, and it supports only 
+direct rendering.  In general, if the TurboVNC host has a GPU, then you 
+should use <a href="#VGL">VirtualGL</a><a name="idx0034"></a> or 
+<a href="#DRI3">DRI3</a><a name="idx0035"></a> rather than relying on 
+TurboVNC&rsquo;s software OpenGL implementation.</p>
+
+<p>Passing <code>-extension&nbsp;GLX</code> to <code>vncserver</code> 
+disables the built-in GLX/OpenGL implementation, thus restoring the 
+behavior of TurboVNC 2.1.x and earlier (which required VirtualGL in 
+order to run OpenGL applications.)  If the built-in GLX/OpenGL 
+implementation is not functioning properly, then pass 
+<code>-verbose</code> to <code>vncserver</code> to log informational 
+messages that may reveal the source of the problem.</p>
+
+
+
+<h2 id="hd0060010">6.10&nbsp;Further Reading</h2>
+
+<p>For more detailed instructions on the usage of TurboVNC:</p>
+
+<dl class="Description">
+    <dt class="Description-1 Description">TurboVNC Server</dt>
+    <dd class="Description-1 Description">
+        Refer to the TurboVNC man pages:
+<pre class="verbatim">
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncserver
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;Xvnc
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncconnect
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncpasswd
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;tvncconfig
+</pre>
+
+    </dd>
+    <dt class="Description-1 Description">TurboVNC Viewer</dt>
+    <dd class="Description-1 Description">
+        Run
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncviewer&nbsp;-?
+</pre>
+
+        on Linux/Un*x and Mac systems or
+<pre class="verbatim">
+c:\Program&nbsp;Files\TurboVNC\vncviewer.bat&nbsp;-?
+</pre>
+
+        on Windows systems to display a list of command-line options and 
+        commonly-used parameters and their descriptions.  Replace 
+        <code>-?</code> with <code>-??</code> to display a list of advanced 
+        parameters and their descriptions.
+    </dd>
+</dl>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd007"><a name="file007"></a>7&nbsp;Performance and Image Quality</h1>
+
+<p>The level of image compression in TurboVNC can be adjusted to balance 
+the (sometimes conflicting) goals of high image quality and high 
+performance. There are four options that control the manner in which 
+TurboVNC compresses images:</p>
+
+<dl class="Description">
+    <dt class="Description-1 Description">Allow JPEG compression</dt>
+    <dd class="Description-1 Description">
+         If this option is enabled, then TurboVNC will use JPEG compression for 
+         subrectangles that have a high number of unique colors, and it will use 
+         indexed color subencoding for subrectangles that have a low number of 
+         unique colors.  If this option is disabled, then TurboVNC will select 
+         between indexed color or raw subencoding, depending on the size of the 
+         subrectangle and its color count.
+    </dd>
+    <dt class="Description-1 Description">JPEG image quality</dt>
+    <dd class="Description-1 Description">
+         Lower quality levels produce grainier JPEG images with more noticeable 
+         compression artifacts, but lower quality levels also use less network 
+         bandwidth and CPU time.
+    </dd>
+    <dt class="Description-1 Description">JPEG chrominance subsampling</dt>
+    <dd class="Description-1 Description">
+         When compressing an image using JPEG, the RGB pixels are first 
+         converted to the YCbCr colorspace, a colorspace in which each pixel is 
+         represented as a brightness (Y, or &ldquo;luminance&rdquo;) value and a 
+         pair of color (Cb &amp; Cr, or &ldquo;chrominance&rdquo;) values.  
+         After this colorspace conversion, chrominance subsampling can be used 
+         to discard some of the chrominance components in order to save 
+         bandwidth.  This works because the human eye is more sensitive to 
+         changes in brightness than to changes in color.  1X subsampling (the 
+         default in TurboVNC) retains the chrominance components for all pixels, 
+         and thus it provides the best image quality but also uses the most 
+         network bandwidth and CPU time.  2X subsampling retains the chrominance 
+         components for every other pixel, and 4X subsampling retains the 
+         chrominance components for every fourth pixel.  (This is typically 
+         implemented as 2X subsampling in both X and Y directions.)  Grayscale 
+         throws out all of the chrominance components, leaving only luminance.  
+         2X and 4X subsampling typically produce noticeable blurring of lines 
+         and other sharp features, but with photographic or other 
+         &ldquo;smooth&rdquo; image content, it may be difficult to detect any 
+         difference between 1X, 2X, and 4X.
+    </dd>
+    <dt class="Description-1 Description">Compression level</dt>
+    <dd class="Description-1 Description">
+         In TurboVNC, the compression level specifies: 
+         <ol class="Ordered numeric"><li class="Ordered-0">
+            the level of zlib compression that will be used with indexed color, 
+            mono, and raw subrectangles
+        </li>
+        <li class="Ordered-0">
+            the &ldquo;palette threshold&rdquo; (the minimum number of colors 
+            that a 
+            subrectangle must have before it is encoded as JPEG or raw instead 
+            of 
+            indexed color)
+        </li>
+        <li class="Ordered-0">
+            whether or not <a href="#InterframeComparison">interframe 
+            comparison</a><a name="idx0036"></a> should be used
+        </li></ol> See Section 
+        <a href="#AdvancedCompression" class="ref">7.2</a> below for more 
+        details.
+    </dd>
+</dl>
+
+<p>These parameters can be adjusted by accessing the TurboVNC Viewer 
+Options dialog box.  (Click on the &ldquo;Options&rdquo; button in the 
+New TurboVNC Connection dialog box or, after connecting to the server, 
+click on the Connection Options button in the toolbar.)</p>
+
+<p>The TurboVNC Viewer provides five preset &ldquo;encoding methods&rdquo; 
+corresponding to the most useful combinations of the image compression 
+options described above:</p>
+
+<a name="tab007001"></a>
+<div class="table">
+<table class="standard" summary="TurboVNC Encoding Methods">
+<caption>Table 7.1: TurboVNC Encoding Methods</caption>
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard">Encoding method</th>
+    <th class="head standard">Allow JPEG</th>
+    <th class="head standard">JPEG image quality</th>
+    <th class="head standard">JPEG chrominance subsampling</th>
+    <th class="head standard">Compression level</th>
+    <th class="head standard">Notes</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="standard">&ldquo;Tight + Perceptually Lossless JPEG&rdquo;</td>
+    <td class="standard">Yes</td>
+    <td class="standard">95</td>
+    <td class="standard">1x</td>
+    <td class="standard">1</td>
+    <td class="standard">This encoding method should be perceptually lossless (that is, any image compression artifacts it produces should be imperceptible to human vision) under most viewing conditions.  This encoding method requires a great deal of network bandwidth, however, and is generally not recommended except on 50 Megabit/second and faster networks.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">&ldquo;Tight + Medium-Quality JPEG&rdquo;</td>
+    <td class="standard">Yes</td>
+    <td class="standard">80</td>
+    <td class="standard">2x</td>
+    <td class="standard">6</td>
+    <td class="standard">For subrectangles that have a high number of unique colors, this encoding method produces some minor, but generally not very noticeable, image compression artifacts.  All else being equal, this encoding method typically uses about twice the network bandwidth of the &ldquo;Tight + Low-Quality JPEG&rdquo; encoding method and about half the bandwidth of the &ldquo;Tight + Perceptually Lossless JPEG&rdquo; encoding method, making it appropriate for medium-speed networks such as 10 Megabit Ethernet. Interframe comparison is enabled with this encoding method.  (Compression Level 6 = Compression Level 1 + interframe comparison.)</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">&ldquo;Tight + Low-Quality JPEG&rdquo;</td>
+    <td class="standard">Yes</td>
+    <td class="standard">30</td>
+    <td class="standard">4x</td>
+    <td class="standard">7</td>
+    <td class="standard">For subrectangles that have a high number of unique colors, this encoding method produces very noticeable image compression artifacts.  However, it performs optimally on low-bandwidth connections.  If image quality is more critical than performance, then use one of the other encoding methods or take advantage of the <a href="#LR">Lossless Refresh feature</a><a name="idx0037"></a>.  In addition to reducing the JPEG quality to a &ldquo;minimum usable&rdquo; level, this encoding method also enables interframe comparison and Compression Level 2.  (CL 7 = CL 2 + interframe comparison.)  Compression Level 2 can reduce network usage for low-color application workloads that are not good candidates for JPEG compression.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">&ldquo;Lossless Tight&rdquo;</td>
+    <td class="standard">No</td>
+    <td class="standard">N/A</td>
+    <td class="standard">N/A</td>
+    <td class="standard">0</td>
+    <td class="standard">This encoding method uses indexed color subencoding for subrectangles that have a low number of unique colors and raw subencoding for subrectangles that have a high number of unique colors.  If the VNC viewer supports the &ldquo;Tight Encoding Without Zlib&rdquo; RFB extension, then zlib is bypassed, and all subrectangles are sent without compression.  Otherwise, all subrectangles are &ldquo;compressed&rdquo; using zlib with zlib compression level 0.  (Zlib compression level 0 maintains the zlib state but does not perform any actual compression.  However, the overhead of maintaining the zlib state reduces overall Tight encoding performance by 10-60% vs. bypassing zlib, depending on the zlib implementation.)  Lossless Tight uses significantly less CPU time than any of the JPEG-based encoding methods, but it is suitable only for gigabit and faster networks.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">&ldquo;Lossless Tight + Zlib&rdquo;</td>
+    <td class="standard">No</td>
+    <td class="standard">N/A</td>
+    <td class="standard">N/A</td>
+    <td class="standard">6</td>
+    <td class="standard">This encoding method uses indexed color subencoding for subrectangles that have a low number of unique colors and raw subencoding for subrectangles that have a high number of unique colors.  It compresses all subrectangles using zlib with zlib compression level 1.  For certain types of low-color workloads (CAD applications, in particular), this encoding method may use less network bandwidth than the &ldquo;Tight + Perceptually Lossless JPEG&rdquo; encoding method, but it also uses significantly more CPU time than any of the JPEG-based encoding methods.  Interframe comparison is enabled with this encoding method.  (Compression Level 6 = Compression Level 1 + interframe comparison.)</td>
+  </tr>
+</table>
+</div>
+
+
+<p>The encoding method can be set in the TurboVNC Viewer Options dialog 
+box. (Click on the &ldquo;Options&rdquo; button in the New TurboVNC 
+Connection dialog box or, after connecting to the server, click on the 
+Connection Options button in the toolbar.)</p>
+
+
+<h2 id="hd007001">7.1&nbsp;Interframe Comparison</h2>
+
+<p><a name="InterframeComparison"></a></p>
+
+<p>Certain ill-behaved applications can sometimes draw the same thing over 
+and over again, and this can cause redundant framebuffer updates to be 
+sent to the VNC viewer.  Additionally, modern GUI toolkits often use 
+image-based drawing methods (the X Rendering Extension, for instance), 
+which can result in an entire window being redrawn even if only a few 
+pixels in the window have changed.  The TurboVNC Server can guard 
+against this by maintaining a copy of the remote framebuffer for each 
+connected viewer, comparing each new framebuffer update rectangle 
+against the pixels in the framebuffer copy, and discarding any redundant 
+portions of the rectangle before they are sent to the viewer.</p>
+
+<p>Interframe comparison has some tradeoffs.  Perhaps the most important of 
+these is that it increases the memory usage of the TurboVNC Server by a 
+factor of N, where N is the number of connected viewers.  This can prove 
+to be quite significant if the remote desktop size is relatively large.  
+2D applications are most often the ones that generate duplicate 
+framebuffer updates, so using interframe comparison with such 
+applications can significantly reduce the network usage and the host CPU 
+usage (since fewer rectangles are actually being encoded.)  However, 
+with 3D applications, the benefits of interframe comparison are less 
+clear, since it is less common for those applications to generate 
+duplicate framebuffer updates.  Interframe comparison may benefit 
+certain classes of 3D applications, such as design applications that 
+render a model against a static background&ndash; particularly when the 
+model is not zoomed in enough to fill the entire window.  In real-world 
+tests, however, interframe comparison rarely reduces the network usage 
+for 3D applications by more than 5-10%.  Furthermore, with games and 
+other immersive applications that modify most of the pixels on the 
+screen each time a frame is rendered, interframe comparison can actually 
+increase both CPU usage and network usage. Furthermore, the effects of 
+duplicate framebuffer updates are not typically noticeable on high-speed 
+networks, but an increase in host CPU usage might be.</p>
+
+<p>For these reasons, interframe comparison is not enabled by default and 
+should not generally be enabled except on bandwidth-constrained networks 
+and with applications for which it can be shown to be beneficial.  
+Interframe comparison can be enabled by passing an argument of 
+<code>-interframe</code> to <code>vncserver</code> when starting a 
+TurboVNC session, by using <code>tvncconfig</code> to set the 
+<code>Interframe</code> parameter for a running TurboVNC session, or by 
+requesting a compression level of 5 or higher from the viewer (see 
+below.)</p>
+
+
+
+<h2 id="hd007002">7.2&nbsp;Advanced Compression Options</h2>
+
+<p><a name="AdvancedCompression"></a></p>
+
+<p>One of the underlying principles of TurboVNC&rsquo;s design is to expose 
+only the options that have proven to be useful (that is, the options 
+that have proven to have good performance tradeoffs.)  Thus, the 
+TurboVNC Viewer Options dialog normally only allows you to select 
+Compression Levels 1-2 if JPEG subencoding is enabled (6-7 if interframe 
+comparison is also enabled) or Compression Levels 0-1 if JPEG 
+subencoding is disabled (5-6 if interframe comparison is enabled.) Other 
+compression levels can, however, be specified using the TurboVNC 
+Viewer&rsquo;s <code>CompressLevel</code> parameter, and doing so will 
+enable a compatibility mode in the TurboVNC Viewer Options dialog that 
+allows any compression level from 0 to 9 to be requested.</p>
+
+<p>When connected to a TurboVNC session, requesting a particular 
+compression level has the following effect:</p>
+
+<a name="tab007002"></a>
+<div class="table">
+<table class="standard" summary="Compression Levels Supported by the TurboVNC Server (JPEG Enabled)">
+<caption>Table 7.2: Compression Levels Supported by the TurboVNC Server (JPEG Enabled)</caption>
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard">Compression level</th>
+    <th class="head standard">Zlib compression level (non-JPEG subrectangles)</th>
+    <th class="head standard">Palette threshold</th>
+    <th class="head standard">Interframe comparison</th>
+    <th class="head standard">Notes</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="standard">0</td>
+    <td class="standard">1</td>
+    <td class="standard">24</td>
+    <td class="standard">No</td>
+    <td class="standard">Same as Compression Level 1.  Bypassing zlib when JPEG is enabled would only reduce the CPU usage for non-JPEG subrectangles, which is of limited usefulness.  Furthermore, bypassing zlib requires an RFB protocol extension that is not supported by non-TurboVNC viewers (as of this writing.)  It is presumed that, if one wants to reduce the CPU usage, then one wants to do so for all subrectangles, so CL 0 without JPEG (AKA &ldquo;Lossless Tight&rdquo;) should be used.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">1</td>
+    <td class="standard">1</td>
+    <td class="standard">24</td>
+    <td class="standard">No</td>
+    <td class="standard">See the description of the &ldquo;Tight + JPEG&rdquo; encoding methods above.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">2</td>
+    <td class="standard">3</td>
+    <td class="standard">96</td>
+    <td class="standard">No</td>
+    <td class="standard">A higher palette threshold causes indexed color subencoding to be used more often than with CL 1, and indexed color subrectangles are compressed using a higher zlib compression level.  This can provide typically 20-40% better compression than CL 1 (with a commensurate increase in CPU usage) for workloads that have a low number of unique colors.  However, Compression Level 2 can increase the CPU usage for some high-color workloads without providing significantly better compression.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">3-4</td>
+    <td class="standard">3</td>
+    <td class="standard">96</td>
+    <td class="standard">No</td>
+    <td class="standard">Same as Compression Level 2 (reserved for future expansion)</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">5-6</td>
+    <td class="standard">1</td>
+    <td class="standard">24</td>
+    <td class="standard">Yes</td>
+    <td class="standard">Same as Compression Level 1 but with interframe comparison enabled</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">7-8</td>
+    <td class="standard">3</td>
+    <td class="standard">96</td>
+    <td class="standard">Yes</td>
+    <td class="standard">Same as Compression Level 2 but with interframe comparison enabled</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">9</td>
+    <td class="standard">7</td>
+    <td class="standard">256</td>
+    <td class="standard">Yes</td>
+    <td class="standard">This mode is included only for backward compatibility with TightVNC.  It provides approximately the same level of compression for 2D applications as Compression Level 9 in TightVNC 1.3.x while using much less CPU time.  It also provides much better compression than TightVNC for 3D and video applications.  However, relative to Compression Level 2, this mode uses approximately twice as much CPU time and only achieves about 10-20% better average compression for 2D applications (and has no noticeable benefit for 3D and video applications.)  Thus, its usefulness is generally very limited.</td>
+  </tr>
+</table>
+</div>
+
+
+<p></p>
+
+<a name="tab007003"></a>
+<div class="table">
+<table class="standard" summary="Compression Levels Supported by the TurboVNC Server (JPEG Disabled)">
+<caption>Table 7.3: Compression Levels Supported by the TurboVNC Server (JPEG Disabled)</caption>
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard">Compression Level</th>
+    <th class="head standard">Zlib compression level (indexed color subrectangles)</th>
+    <th class="head standard">Zlib compression level (raw subrectangles)</th>
+    <th class="head standard">Palette threshold</th>
+    <th class="head standard">Interframe comparison</th>
+    <th class="head standard">Notes</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="standard">0</td>
+    <td class="standard">None</td>
+    <td class="standard">None</td>
+    <td class="standard">Subrectangle size / 4</td>
+    <td class="standard">No</td>
+    <td class="standard">See the description of the &ldquo;Lossless Tight&rdquo; encoding method above.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">1</td>
+    <td class="standard">1</td>
+    <td class="standard">1</td>
+    <td class="standard">Subrectangle size / 96</td>
+    <td class="standard">No</td>
+    <td class="standard">See the description of the &ldquo;Lossless Tight + Zlib&rdquo; encoding method above.</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">2-4</td>
+    <td class="standard">1</td>
+    <td class="standard">1</td>
+    <td class="standard">Subrectangle size / 96</td>
+    <td class="standard">No</td>
+    <td class="standard">Same as Compression Level 1 (reserved for future expansion)</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">5</td>
+    <td class="standard">None</td>
+    <td class="standard">None</td>
+    <td class="standard">Subrectangle size / 4</td>
+    <td class="standard">Yes</td>
+    <td class="standard">Same as Compression Level 0 but with interframe comparison enabled</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">6-8</td>
+    <td class="standard">1</td>
+    <td class="standard">1</td>
+    <td class="standard">Subrectangle size / 96</td>
+    <td class="standard">Yes</td>
+    <td class="standard">Same as Compression Level 1 but with interframe comparison enabled</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">9</td>
+    <td class="standard">7</td>
+    <td class="standard">5</td>
+    <td class="standard">Subrectangle size / 96</td>
+    <td class="standard">Yes</td>
+    <td class="standard">This mode is included only for backward compatibility with TightVNC.  It provides approximately the same level of compression for 2D applications as Compression Level 9 in TightVNC 1.3.x, while using much less CPU time.  It also provides much better compression than TightVNC for 3D and video applications.  However, relative to Compression Level 1, this mode uses approximately twice as much CPU time and only achieves about 10% better average compression for 2D applications (and has no noticeable benefit for 3D and video applications.)  Thus, its usefulness is generally very limited.</td>
+  </tr>
+</table>
+</div>
+
+
+
+
+<h2 id="hd007003">7.3&nbsp;Lossless Refresh</h2>
+
+<p><a name="LR"></a></p>
+
+<p>Since both of TurboVNC&rsquo;s mathematically lossless encoding methods 
+have performance drawbacks, another option for image-quality-critical 
+applications is the Lossless Refresh feature.  When a lossless refresh 
+is requested by a TurboVNC viewer, the VNC server will send a 
+mathematically lossless image of the remote desktop to the requesting 
+viewer.  A user could, for instance, use the &ldquo;Tight + Low-Quality 
+JPEG&rdquo; encoding method on a low-bandwidth network to improve the 
+performance of rotating/panning/zooming an object in a 3D application, 
+then the user could request a lossless refresh when they are ready to 
+interpret or analyze the object.</p>
+
+<p>To perform a lossless refresh, press CTRL-ALT-SHIFT-L or click on the 
+Lossless Refresh toolbar icon.</p>
+
+
+
+<h2 id="hd007004">7.4&nbsp;Automatic Lossless Refresh</h2>
+
+<p><a name="ALR"></a></p>
+
+<p>Passing an argument of <code>-alr <em>timeout</em></code> to 
+<code>vncserver</code> (or using <code>tvncconfig</code> to set the 
+<code>ALR</code> parameter for a running TurboVNC session) enables the 
+Automatic Lossless Refresh (ALR) feature for the TurboVNC session.  ALR 
+monitors all of the VNC viewer connections, and if more than 
+<em><code>timeout</code></em> seconds have elapsed since the last 
+framebuffer update was sent to a given viewer, then the TurboVNC Server 
+sends that viewer a mathematically lossless copy of any 
+&ldquo;ALR-eligible&rdquo; screen regions that have been affected by 
+lossy compression.  You can also pass arguments of <code>-alrqual</code> 
+and <code>-alrsamp</code> to <code>vncserver</code> (or use 
+<code>tvncconfig</code> to set the <code>ALRQual</code> and 
+<code>ALRSamp</code> parameters for a running TurboVNC session) to 
+specify that automatic lossless refreshes should be sent using JPEG 
+instead.  (See the <code>Xvnc</code> man page for details.)</p>
+
+<p>The ALR feature is designed mainly for use with interactive 
+visualization applications.  The idea is that, on a low-bandwidth 
+connection, low-quality JPEG can be used while the 3D scene is 
+rotated/panned/zoomed, but when the motion stops, a fully lossless copy 
+of the 3D image is sent and can be studied in detail.</p>
+
+<p>The default is for any regions drawn with <code>X[Shm]PutImage()</code> 
+to be ALR-eligible&ndash; as well as any regions drawn with CopyRect, if 
+the source of the CopyRect operation was affected by lossy compression.  
+(CopyRect is an RFB encoding that allows the VNC server to request that 
+a VNC viewer move a rectangle of pixels from one location to another.)  
+When used with VirtualGL, this means that ALRs will mainly just be sent 
+for the OpenGL-rendered regions of the remote desktop.  That should be 
+fine for most 3D applications, since the OpenGL-rendered regions are the 
+ones that are quality-critical.  The default ALR behavior also prevents 
+what might best be called the &ldquo;blinking cursor dilemma.&rdquo;  
+Certain programs have a blinking cursor that may update more frequently 
+than the ALR timeout.  Since an ALR is triggered based on a period of 
+inactivity relative to the last framebuffer update, these frequent 
+updates prevent an ALR from ever being sent.  Fortunately, blinking 
+cursors are not typically drawn using <code>X[Shm]PutImage()</code>, so 
+the problem is effectively worked around by limiting the ALR-eligible 
+regions to just the subset of regions that were drawn using 
+<code>X[Shm]PutImage()</code> and CopyRect.</p>
+
+<div class="important"><p class="important">
+NOTE: Ill-behaved applications that continuously render the same image will cause a variation of the &ldquo;blinking cursor dilemma&rdquo; and thus defeat ALR unless <a href="#InterframeComparison">interframe comparison</a><a name="idx0038"></a> is enabled.
+</p></div>
+
+<p>You can override the default ALR behavior, thus making all screen 
+regions eligible for ALR, by setting the <code>TVNC_ALRALL</code> 
+environment variable to <code>1</code> on the TurboVNC host prior to 
+starting a TurboVNC session or by using <code>tvncconfig</code> to set 
+the <code>ALRAll</code> parameter for a running TurboVNC session.</p>
+
+
+
+<h2 id="hd007005">7.5&nbsp;Multithreading</h2>
+
+<p><a name="Multithreading"></a></p>
+
+<p>By default, the TurboVNC Server uses multiple threads to perform image 
+encoding and compression, thus allowing it to take advantage of 
+multi-core or multi-processor systems.  The server splits the screen 
+vertically into N tiles, where N is the number of threads, and assigns 
+each tile to a separate thread. The scalability of this algorithm is 
+nearly linear when used with demanding 3D or video applications that 
+fill most of the screen.  However, whether or not multithreading 
+improves the overall performance of TurboVNC depends largely on the 
+performance of the viewer and the network.  If either the viewer or the 
+network is the primary performance bottleneck, then enabling 
+multithreading in the server will not help.  Multithreading is also not 
+currently implemented with non-Tight encoding types.</p>
+
+<p>To disable server-side multithreading, set the <code>TVNC_MT</code> 
+environment variable to <code>0</code> on the host prior to starting 
+<code>vncserver</code>, or pass an argument of <code>-nomt</code> to 
+<code>vncserver</code>.  The default behavior is to use as many threads 
+as there are cores on the TurboVNC host (up to a maximum of 4), but you 
+can set the <code>TVNC_NTHREADS</code> environment variable or pass an 
+argument of <code>-nthreads</code> to <code>vncserver</code> to override 
+this.</p>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd008"><a name="file008"></a>8&nbsp;TurboVNC Security Extensions</h1>
+
+<p><a name="Security_Extensions"></a></p>
+
+
+<h2 id="hd008001">8.1&nbsp;Terminology</h2>
+
+<p>In an attempt to be consistent with other VNC implementations, TurboVNC 
+uses the following terminology when referring to its security extensions:</p>
+
+<dl class="Description">
+    <dt class="Description-1 Description">Authentication Method</dt>
+    <dd class="Description-1 Description">
+         A technique that the VNC server uses to validate authentication 
+         credentials sent from a VNC viewer.  If the credentials sent from a 
+         particular VNC viewer are not valid, then that viewer is not allowed to 
+         connect.
+    </dd>
+    <dt class="Description-1 Description">Authentication Scheme</dt>
+    <dd class="Description-1 Description">
+         A protocol used to send authentication credentials from a VNC viewer to 
+         a VNC server for validation.  Some authentication schemes are required 
+         by the RFB protocol specification, and others are implemented as 
+         extensions to that specification.
+    </dd>
+    <dt class="Description-1 Description">Encryption Method</dt>
+    <dd class="Description-1 Description">
+         A technique used to encrypt the data sent between the VNC server and 
+         the VNC viewer
+    </dd>
+    <dt class="Description-1 Description">Security Type</dt>
+    <dd class="Description-1 Description">
+         A specific combination of an authentication method, an authentication 
+         scheme, and an encryption method
+    </dd>
+</dl>
+
+
+
+<h2 id="hd008002">8.2&nbsp;TurboVNC Server Authentication Methods</h2>
+
+<dl class="Description">
+    <dt class="Description-1 Description">No Authentication</dt>
+    <dd class="Description-1 Description">
+         The VNC server does not authenticate the VNC viewer at all.
+    </dd>
+    <dt class="Description-1 Description">VNC Password Authentication</dt>
+    <dd class="Description-1 Description">
+         A session password sent from the VNC viewer is validated against a 
+         password file, which is typically located under the user&rsquo;s home 
+         directory on the VNC host.  The VNC password is separate from any other 
+         login credentials and thus represents less of a security threat if 
+         compromised (that is, assuming the VNC password and the user&rsquo;s 
+         account password are not the same.)
+    </dd>
+    <dt class="Description-1 Description">One-Time Password (OTP) Authentication</dt>
+    <dd class="Description-1 Description">
+         Using the <code>vncpasswd</code> program, a unique password is 
+         generated &ldquo;on the fly&rdquo; for the TurboVNC session, and the 
+         password is printed on the command line.  (See the 
+         <code>vncpasswd</code> man page for more details.)  The user enters 
+         this password into the VNC viewer, and the VNC viewer sends the 
+         password to the server as if it were a VNC password.  However, once the 
+         OTP has been used to authenticate a viewer, the OTP is forgotten and 
+         cannot be reused. OTP authentication can be used, for instance, to 
+         launch or connect to TurboVNC sessions from an automated web portal or 
+         from a job scheduler. OTP authentication is also useful for allowing 
+         temporary access to a TurboVNC session for collaboration purposes.  The 
+         <a href="#TurboVNC_Session_Manager">TurboVNC Session 
+         Manager</a><a name="idx0039"></a> uses OTP authentication by default, 
+         which allows it to securely authenticate with a TurboVNC session 
+         without prompting for additional credentials.
+    </dd>
+    <dt class="Description-1 Description">PAM User/Password Authentication</dt>
+    <dd class="Description-1 Description">
+         The VNC server uses Pluggable Authentication Modules (PAM) to validate 
+         a username and password received from a VNC viewer.  The password 
+         received from the VNC viewer need not necessarily be validated against 
+         the user&rsquo;s account password.  Generally, the TurboVNC Server can 
+         validate the username and password using any authentication credentials 
+         that can be accessed through PAM.  Since the user/password 
+         authentication schemes supported by TurboVNC (see below) transmit the 
+         password from the VNC viewer to the VNC server as plain text, it is 
+         strongly recommended that the PAM User/Password authentication method 
+         be used only with session encryption or if the session is restricted to 
+         allow only loopback (SSH) connections and to disallow reverse 
+         connections (see Section 
+         <a href="#Secure_TurboVNC_Usage" class="ref">6.7</a>.)
+    </dd>
+</dl>
+
+
+
+<h2 id="hd008003">8.3&nbsp;TurboVNC Viewer Authentication Schemes</h2>
+
+<dl class="Description">
+    <dt class="Description-1 Description">None</dt>
+    <dd class="Description-1 Description">
+         No authentication credentials are sent to the server.
+    </dd>
+    <dt class="Description-1 Description">Standard VNC Authentication</dt>
+    <dd class="Description-1 Description">
+         A password is sent to the server using a DES-encrypted 
+         challenge/response scheme.  The password can be up to 8 characters 
+         long, so the DES key length is 56 bits.  This is not a particularly 
+         strong form of encryption by today&rsquo;s standards.  (56-bit DES was 
+         broken by brute force attack in the late 1990s.)
+    </dd>
+    <dt class="Description-1 Description">Unix Login/Plain Authentication</dt>
+    <dd class="Description-1 Description">
+         Both the username and password are sent to the VNC server as plain 
+         text. Thus, it is <em>strongly</em> recommended that this 
+         authentication scheme be used only with VNC connections that are 
+         encrypted using TLS (see below) or SSH (see Section 
+         <a href="#Secure_TurboVNC_Usage" class="ref">6.7</a>.)  Per the RFB 
+         spec, this authentication scheme is referred to as &ldquo;Unix 
+         Login&rdquo; when used with a TightVNC-compatible server and 
+         &ldquo;Plain&rdquo; when used with a VeNCrypt-compatible server.
+    </dd>
+</dl>
+
+
+
+<h2 id="hd008004">8.4&nbsp;Supported Encryption Methods</h2>
+
+<p>TurboVNC supports three encryption methods:</p>
+
+<dl class="Description">
+    <dt class="Description-1 Description">None</dt>
+    <dd class="Description-1 Description">
+         No encryption
+    </dd>
+    <dt class="Description-1 Description">Anonymous TLS Encryption</dt>
+    <dd class="Description-1 Description">
+         The connection is encrypted using TLS (Transport Layer Security) 
+         without authentication (i.e. without a certificate.)
+    </dd>
+    <dt class="Description-1 Description">TLS/X.509 Encryption</dt>
+    <dd class="Description-1 Description">
+         The connection is encrypted using TLS with a specified X.509 
+         certificate.
+    </dd>
+</dl>
+
+
+
+<h2 id="hd008005">8.5&nbsp;Supported Security Types</h2>
+
+<p>TurboVNC supports the following security types:</p>
+
+<div class="table">
+<table class="standard">
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard">Server Security Type</th>
+    <th class="head standard">Authentication Method</th>
+    <th class="head standard">Encryption Method</th>
+    <th class="head standard">Viewer Security Type</th>
+    <th class="head standard">Authentication Scheme</th>
+    <th class="head standard">Compatibility</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="high standard">None</td>
+    <td class="standard">None</td>
+    <td class="standard">None</td>
+    <td class="high standard">None</td>
+    <td class="standard">None</td>
+    <td class="standard">RFB 3.3+</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">VNC</td>
+    <td class="standard">VNC Password</td>
+    <td class="standard">None</td>
+    <td class="high standard" rowspan="2">VNC</td>
+    <td class="standard" rowspan="2">Standard VNC</td>
+    <td class="standard" rowspan="2">RFB 3.3+</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">OTP</td>
+    <td class="standard">One-Time Password</td>
+    <td class="standard">None</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Plain</td>
+    <td class="standard">PAM User/Password</td>
+    <td class="standard">None</td>
+    <td class="high standard">Plain</td>
+    <td class="standard">Plain</td>
+    <td class="standard">RFB 3.7+ with VeNCrypt extensions</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">TLSNone</td>
+    <td class="standard">None</td>
+    <td class="standard">Anonymous TLS</td>
+    <td class="high standard">TLSNone</td>
+    <td class="standard">None</td>
+    <td class="standard">RFB 3.7+ with VeNCrypt extensions</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">TLSVnc</td>
+    <td class="standard">VNC Password</td>
+    <td class="standard">Anonymous TLS</td>
+    <td class="high standard" rowspan="2">TLSVnc</td>
+    <td class="standard" rowspan="2">Standard VNC</td>
+    <td class="standard" rowspan="2">RFB 3.7+ with VeNCrypt extensions</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">TLSOtp</td>
+    <td class="standard">One-Time Password</td>
+    <td class="standard">Anonymous TLS</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">TLSPlain</td>
+    <td class="standard">PAM User/Password</td>
+    <td class="standard">Anonymous TLS</td>
+    <td class="high standard">TLSPlain</td>
+    <td class="standard">Plain</td>
+    <td class="standard">RFB 3.7+ with VeNCrypt extensions</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">X509None</td>
+    <td class="standard">None</td>
+    <td class="standard">TLS/X.509</td>
+    <td class="high standard">X509None</td>
+    <td class="standard">None</td>
+    <td class="standard">RFB 3.7+ with VeNCrypt extensions</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">X509Vnc</td>
+    <td class="standard">VNC Password</td>
+    <td class="standard">TLS/X.509</td>
+    <td class="high standard" rowspan="2">X509Vnc</td>
+    <td class="standard" rowspan="2">Standard VNC</td>
+    <td class="standard" rowspan="2">RFB 3.7+ with VeNCrypt extensions</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">X509Otp</td>
+    <td class="standard">One-Time Password</td>
+    <td class="standard">TLS/X.509</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">X509Plain</td>
+    <td class="standard">PAM User/Password</td>
+    <td class="standard">TLS/X.509</td>
+    <td class="high standard">X509Plain</td>
+    <td class="standard">Plain</td>
+    <td class="standard">RFB 3.7+ with VeNCrypt extensions</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">UnixLogin</td>
+    <td class="standard">PAM User/Password</td>
+    <td class="standard">None</td>
+    <td class="high standard">UnixLogin</td>
+    <td class="standard">Unix Login</td>
+    <td class="standard">RFB 3.7+ with TightVNC extensions</td>
+  </tr>
+</table>
+</div>
+
+
+<div class="important"><p class="important">
+NOTE: The security type names are case-insensitive.  The capitalization conventions above are used for consistency with the RFB protocol specification.
+</p></div>
+
+
+
+<h2 id="hd008006">8.6&nbsp;Enabling Security Types</h2>
+
+<p>The default behavior of the TurboVNC Server is for all security types 
+except TLSNone, X509None, and None to be enabled and for VNC Password 
+and OTP authentication to be preferred over PAM User/Password 
+authentication.  However, the system administrator can disable one or 
+more of the security types or change their preferred order by editing 
+the TurboVNC security configuration file.  See the <code>Xvnc</code> man 
+page for more details.  Note that only the OTP security type is needed 
+when using the <a href="#TurboVNC_Session_Manager">TurboVNC Session 
+Manager</a><a name="idx0040"></a> with its default settings.</p>
+
+<p>If the VNC server allows multiple security types, then the TurboVNC 
+Viewer&rsquo;s default security type will be determined by the 
+server&rsquo;s preferred security type.  In this case, the user can 
+override the default by using the TurboVNC Viewer&rsquo;s 
+<code>SecurityTypes</code>, <code>User</code>, and 
+<code>NoUnixLogin</code> parameters.  If the VNC server prefers a 
+security type that supports Standard VNC authentication, then the user 
+can force the use of Unix Login/Plain authentication by setting the 
+TurboVNC Viewer&rsquo;s <code>User</code> parameter to 
+<em><code>user-name</code></em> when connecting to the VNC server.  
+Similarly, if the VNC server prefers a security type that supports Unix 
+Login/Plain authentication, then the user can force the use of Standard 
+VNC authentication by setting the <code>NoUnixLogin</code> parameter.  
+The same thing can also be accomplished by unchecking specific security 
+types in the &ldquo;Security&rdquo; tab of the TurboVNC Viewer Options 
+dialog or by using the <code>SecurityTypes</code> parameter to limit the 
+available security types or change their preferred order.</p>
+
+<p>If the system administrator has not restricted any of the server 
+security types on a system-wide basis, then the user can disable some of 
+them, or change their preferred order, for a particular TurboVNC session 
+by using the <code>-securitytypes</code> command-line argument when 
+starting the session (or by setting the <code>$securityTypes</code> 
+variable in <strong class="filename">turbovncserver.conf</strong>.)  See 
+the <code>Xvnc</code> man page for more details.</p>
+
+
+
+<h2 id="hd008007">8.7&nbsp;Further Reading</h2>
+
+<p>For more detailed information about the TurboVNC security extensions, 
+refer to the TurboVNC man pages:</p>
+
+<pre class="verbatim">
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncserver
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;Xvnc
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncpasswd
+</pre>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd009"><a name="file009"></a>9&nbsp;GPU-Accelerated OpenGL (Using VirtualGL with TurboVNC)</h1>
+
+<p><a name="VGL"></a></p>
+
+<p>Referring to the VirtualGL User&rsquo;s Guide, VirtualGL&rsquo;s X11 
+Transport draws OpenGL-rendered frames to an X display using standard 
+X11 drawing commands. Since this results in the frames being sent 
+uncompressed to the X server, the X11 Transport is designed to be used 
+with an &ldquo;X proxy.&rdquo;  An X proxy acts as a virtual X server, 
+receiving X11 commands from applications (and from VirtualGL), rendering 
+the X11 commands into images, compressing the resulting images, and 
+sending the compressed images over the network to a client or clients.</p>
+
+<p>Since VirtualGL sends rendered frames to the X proxy at a very fast 
+rate, the X proxy must be able to compress the frames very quickly in 
+order to keep up. When VirtualGL was first released, most X proxies 
+couldn&rsquo;t.  They simply weren&rsquo;t designed to compress, with 
+any degree of performance, the large and complex images generated by 3D 
+applications.  Enter TurboVNC.  Although TurboVNC can be used with all 
+types of applications, it was initially designed as a fast X proxy for 
+VirtualGL.  TurboVNC provides an alternate means of delivering rendered 
+frames from VirtualGL to a client machine without using 
+VirtualGL&rsquo;s built-in VGL Transport.</p>
+
+
+<h3 id="hd009000001">Advantages of TurboVNC (when compared to the VGL Transport)</h3>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        When using the VGL Transport, non-OpenGL elements of the 3D 
+        application&rsquo;s GUI are sent over the network using remote X11, 
+        which does not perform well on high-latency networks such as broadband 
+        or long-haul fibre.  On such networks, non-OpenGL elements of the 3D 
+        application&rsquo;s GUI will load and render much faster (perhaps even 
+        orders of magnitude faster) with TurboVNC than with the VGL Transport.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        For 3D applications whose rendered frames do not contain very many 
+        unique colors (for instance, CAD applications in wireframe mode), the 
+        hybrid encoding methods used by TurboVNC generally require less network 
+        bandwidth than the pure JPEG encoding method used by the VGL Transport.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        TurboVNC provides two lossless compression modes, one of which is 
+        designed to reduce host CPU usage on gigabit networks and the other of 
+        which is designed to provide reasonable performance on wide-area 
+        networks (at the expense of higher host CPU usage.)  The VGL 
+        Transport&rsquo;s only lossless option is uncompressed RGB.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        TurboVNC includes a Lossless Refresh feature that will, automatically 
+        (during periods of inactivity) or on demand, send a mathematically 
+        lossless copy of remote desktop regions that were previously sent using 
+        lossy compression.  Refer to Sections <a href="#LR" class="ref">7.3</a> 
+        and Section <a href="#ALR" class="ref">7.4</a>.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        TurboVNC provides rudimentary collaboration capabilities.  Multiple 
+        users can simultaneously view the same TurboVNC session and pass around 
+        control of the keyboard and mouse.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        From the point of view of the 3D application, the TurboVNC session is 
+        stateless.  If the network hiccups or the viewer is otherwise 
+        disconnected, then the TurboVNC session continues to run on the host and 
+        can be rejoined from any machine on the network.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        No X server is required on the client machine.  This reduces the 
+        deployment complexity for Windows clients.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Any machine with a web browser, and any mobile device, can be used as a 
+        TurboVNC client (with reduced performance and features relative to the 
+        TurboVNC Viewer.)  Refer to Section <a href="#noVNC" class="ref">6.6</a>.
+    </li>
+</ul>
+
+
+
+<h3 id="hd009000002">Disadvantages of TurboVNC (when compared to the VGL transport)</h3>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        No seamless windows.  All application windows are constrained to a 
+        virtual desktop, which is displayed in a single window on the client 
+        machine.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        TurboVNC generally requires about 20% more host CPU cycles to maintain 
+        the same frame rate as the VGL Transport, both because it has to 
+        compress more pixels in each frame (an entire desktop rather than a 
+        single window) and because it has to perform 2D (X11) rendering as well 
+        as 3D rendering.
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        TurboVNC does not support quad-buffered stereo.
+    </li>
+</ul>
+
+
+
+<h2 id="hd009001">9.1&nbsp;Using VirtualGL on a TurboVNC Host</h2>
+
+<p>The most common (and optimal) way to use VirtualGL with TurboVNC is to 
+configure the same machine as a TurboVNC host and a VirtualGL server.  
+This allows VirtualGL to send rendered frames to TurboVNC through shared 
+memory rather than over a network.</p>
+
+<div class="figure">
+<img src="x11transport.png" alt="x11transport" class="figure" id="imgid_8" name="imgid_8"/>
+</div>
+
+<p>The following procedure describes how to launch a 3D application using 
+this configuration.</p>
+
+
+<h3 id="hd009001001">Procedure</h3>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        Follow the procedure described in Chapter 
+        <a href="#TurboVNC_Usage" class="ref">6</a> for starting a TurboVNC 
+        session and connecting to it.
+    </li>
+    <li class="Ordered-1 Ordered">
+        Open a new terminal inside the remote desktop.
+    </li>
+    <li class="Ordered-1 Ordered">
+        In the terminal, start a 3D application using VirtualGL:
+        <pre class="verbatim">/opt/VirtualGL/bin/vglrun <em>[vglrun options]</em> <em>3D-application-executable-or-script</em> <em>[arguments]</em></pre>
+    </li>
+</ol>
+
+
+
+<h3 id="hd009001002">9.1.2&nbsp;Running the Window Manager Using VirtualGL</h3>
+
+<p><a name="VGLWM"></a></p>
+
+<p>If the TurboVNC host is also a VirtualGL server, then you can pass 
+<code>-vgl</code> to <code>vncserver</code> or set the 
+<code>$useVGL</code> variable in 
+<strong class="filename">turbovncserver.conf</strong> to enable 
+VirtualGL for all OpenGL applications launched in the TurboVNC session, 
+including the window manager.  This improves the performance of 
+compositing window managers and enables GPU acceleration for OpenGL 
+applications without the need to invoke <code>vglrun</code>.</p>
+
+<div class="important"><p class="important">
+To change VirtualGL&rsquo;s configuration for a specific 3D application, start the application with <code>vglrun</code>, per above, or set one of the <code>VGL_*</code> configuration environment variables prior to starting the application. (Refer to the VirtualGL User&rsquo;s Guide.)
+</p></div>
+
+<div class="important"><p class="important">
+To disable VirtualGL for a specific 3D application, unset the <code>LD_PRELOAD</code> environment variable prior to starting the application.
+</p></div>
+
+
+
+<h2 id="hd009002">9.2&nbsp;Using VirtualGL on a Machine Other Than a TurboVNC Host</h2>
+
+<div class="figure">
+<img src="vgltransportservernetwork.png" alt="vgltransportservernetwork" class="figure" id="imgid_9" name="imgid_9"/>
+</div>
+
+<p>If the TurboVNC host and VirtualGL server are different machines, then 
+it is desirable to use the VGL Transport to send rendered frames from 
+the VirtualGL server to the TurboVNC session.  It is also desirable to 
+disable image compression in the VGL Transport.  Otherwise, the images 
+would have to be compressed by the VirtualGL server, decompressed by the 
+VirtualGL Client, then recompressed by the TurboVNC Server, which is a 
+waste of CPU resources. However, sending images uncompressed over a 
+network requires a fast network (generally, Gigabit Ethernet or faster), 
+so there needs to be a fast link between the VirtualGL server and the 
+TurboVNC host for this procedure to perform well.</p>
+
+
+<h3 id="hd009002001">Procedure</h3>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        Follow the procedure described in Chapter 
+        <a href="#TurboVNC_Usage" class="ref">6</a> for starting a TurboVNC 
+        session and connecting to it.
+    </li>
+    <li class="Ordered-1 Ordered">
+        Open a new terminal inside the remote desktop.
+    </li>
+    <li class="Ordered-1 Ordered">
+        In the same terminal window, open a Secure Shell (SSH) session into the 
+        VirtualGL server:
+        <pre class="verbatim">/opt/VirtualGL/bin/vglconnect <em>[vglconnect options]</em> <em>user</em>@<em>server</em></pre>
+        Replace <em><code>user</code></em> with your username on the VirtualGL 
+        server and <em><code>server</code></em> with the hostname or IP address 
+        of that server.  Refer to the VirtualGL User&rsquo;s Guide for 
+        additional <code>vglconnect</code> options.
+    </li>
+    <li class="Ordered-1 Ordered">
+        In the SSH session, set the <code>VGL_COMPRESS</code> environment 
+        variable to <code>rgb</code>.
+        <div class="important"><p class="important">
+        Passing an argument of <code>-c&nbsp;rgb</code> to <code>vglrun</code> achieves the same result.
+        </p></div>
+    </li>
+    <li class="Ordered-1 Ordered">
+        In the SSH session, start a 3D application using VirtualGL:
+        <pre class="verbatim">/opt/VirtualGL/bin/vglrun <em>[vglrun options]</em> <em>3D-application-executable-or-script</em> <em>[arguments]</em></pre>
+    </li>
+</ol>
+
+
+
+<h2 id="hd009003">9.3&nbsp;NV-CONTROL Emulation</h2>
+
+<p>This version of TurboVNC includes partial emulation of the 
+<code>NV-CONTROL</code> X11 extension provided by nVidia&rsquo;s 
+proprietary Un*x drivers.  Certain 3D applications rely on this 
+extension to query and set low-level GPU properties, and unfortunately 
+the library (libXNVCtrl) used by applications to interact with the 
+extension is static, making it impossible to interpose using VirtualGL.</p>
+
+<p>Passing an argument of <code>-nvcontrol <em>display</em></code> to 
+<code>vncserver</code> causes the TurboVNC Server to create a fake 
+<code>NV-CONTROL</code> extension in the TurboVNC session and redirect 
+all <code>NV-CONTROL</code> requests to <em><code>display</code></em>. 
+<em><code>display</code></em> should be the X display/screen of the 3D X 
+server you plan to use with VirtualGL (<code>:0.0</code>, for instance.)  
+The TurboVNC Server does not attempt to open a connection to this 
+display until an application uses the <code>NV-CONTROL</code> extension.  
+If a connection to the 3D X server cannot be opened, if the 3D X server 
+does not have the <code>NV-CONTROL</code> extension, or if other issues 
+are encountered when attempting to redirect <code>NV-CONTROL</code> 
+requests, then an X11 BadRequest error will be returned to the 
+application, and the TurboVNC session log will display an error message 
+explaining why the request failed.  It is assumed that you have already 
+followed the procedure in the VirtualGL User&rsquo;s Guide to allow 
+access to the 3D X server.  If access to the 3D X server is restricted 
+to members of the <code>vglusers</code> group, then you may need to 
+execute</p>
+
+<pre class="verbatim">
+xauth&nbsp;merge&nbsp;/etc/opt/VirtualGL/vgl_xauth_key
+</pre>
+
+<p>in order to use the <code>NV-CONTROL</code> extension prior to invoking 
+<code>vglrun</code> for the first time.</p>
+
+<p>You can change the 3D X server for a particular TurboVNC session after 
+the session has been started.  For instance, if you wanted to redirect 
+both <code>NV-CONTROL</code> requests and OpenGL to a GPU attached to 
+Screen 1 of Display :0, then you could execute</p>
+
+<pre class="verbatim">xprop -root -f VNC_NVCDISPLAY 8s -set VNC_NVCDISPLAY :0.1
+vglrun -d :0.1 <em>3D-application-executable-or-script</em></pre>
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd0010"><a name="file010"></a>10&nbsp;GPU-Accelerated OpenGL and Vulkan (Using the DRI3 X11 Extension)</h1>
+
+<p><a name="DRI3"></a></p>
+
+<p>The TurboVNC Server supports built-in GPU acceleration when using open 
+source (Mesa-based) GPU drivers.  This is implemented through the 
+<code>DRI3</code> X11 extension, which can be enabled by passing 
+<code>-drinode <em>DRM-render-node</em></code> to <code>vncserver</code> 
+or adding the same command-line arguments to the value of the 
+<code>$serverArgs</code> variable in 
+<strong class="filename">turbovncserver.conf</strong> (or to the value 
+of the TurboVNC Viewer&rsquo;s <code>ServerArgs</code> parameter, if 
+using the TurboVNC Session Manager.) 
+<em><code>DRM-render-node</code></em> is the DRM render node 
+corresponding to a GPU on the TurboVNC host (for example, 
+<code>/dev/dri/renderD128</code>.)  Specifying a DRM render node of 
+<code>auto</code> is the equivalent of specifying the first DRM render 
+node under <strong class="filename">/dev/dri</strong>.</p>
+
+
+<h3 id="hd0010000001">Advantages of DRI3 (when compared to <a href="#VGL">VirtualGL</a><a name="idx0041"></a>)</h3>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        No additional software or setup required
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Supports GPU acceleration with Vulkan applications
+    </li>
+</ul>
+
+
+
+<h3 id="hd0010000002">Disadvantages of DRI3 (when compared to <a href="#VGL">VirtualGL</a><a name="idx0042"></a>)</h3>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        Requires open source (Mesa-based) GPU drivers (does not work with 
+        nVidia&rsquo;s proprietary Un*x drivers)
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Generally has worse performance and more CPU overhead with OpenGL 
+        applications
+    </li>
+</ul>
+
+<p>DRI3 is particularly useful with virtualization environments, such as 
+VMware and Parallels Desktop, that redirect 3D rendering from the guest 
+to the host. (The performance advantages of VirtualGL are less 
+pronounced in such environments.)</p>
+
+<p>VirtualGL&rsquo;s performance is generally affected very little or not 
+at all by the presence of the <code>DRI3</code> X11 extension, so using 
+DRI3 for Vulkan applications and VirtualGL for OpenGL applications is a 
+viable approach.</p>
+
+<div class="important"><p class="important">
+By default, Mesa-based GPU drivers synchronize 3D rendering to the vertical refresh rate (always 60 Hz in TurboVNC.)  Set the <code>vblank_mode</code> environment variable to <code>1</code> to disable vertical refresh rate synchronization by default while allowing applications to override the default.  Set the <code>vblank_mode</code> environment variable to <code>0</code> to force-disable vertical refresh rate synchronization.
+</p></div>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd0011"><a name="file011"></a>11&nbsp;Compatibility Guide</h1>
+
+<p><a name="Compatibility"></a></p>
+
+<p>In order to realize the full benefits of TurboVNC, it is necessary to 
+use the TurboVNC Server and the TurboVNC Viewer together.  However, 
+TurboVNC is compatible with TigerVNC, TightVNC, RealVNC, and other VNC 
+flavors.  You can use the TurboVNC Viewer to connect to a non-TurboVNC 
+server (or vice versa), although this will generally result in some 
+decrease in performance, and features such as the 
+<a href="#TurboVNC_Session_Manager">TurboVNC Session 
+Manager</a><a name="idx0043"></a> will not be available.</p>
+
+<p>The following sections list additional things to bear in mind when 
+mixing TurboVNC with other VNC flavors.</p>
+
+
+<h2 id="hd0011001">11.1&nbsp;TightVNC or TigerVNC Servers</h2>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        TightVNC and TigerVNC specify the JPEG quality level on a scale from 0 
+        to 9. This translates to actual JPEG quality as follows:
+        <dl class="Description">
+            <dt class="Description-3 Description">TightVNC JPEG Quality Levels</dt>
+            <dd class="Description-3 Description">
+                <div class="table">
+                <table class="standard">
+                  <thead class="standard">
+                  <tr class="head ">
+                    <th class="head standard">JPEG quality level</th>
+                    <th class="head standard">0</th>
+                    <th class="head standard">1</th>
+                    <th class="head standard">2</th>
+                    <th class="head standard">3</th>
+                    <th class="head standard">4</th>
+                    <th class="head standard">5</th>
+                    <th class="head standard">6</th>
+                    <th class="head standard">7</th>
+                    <th class="head standard">8</th>
+                    <th class="head standard">9</th>
+                  </tr>
+                  </thead>
+                  <tr class="standard">
+                    <td class="high standard">Actual JPEG quality</td>
+                    <td class="standard">5</td>
+                    <td class="standard">10</td>
+                    <td class="standard">15</td>
+                    <td class="standard">25</td>
+                    <td class="standard">37</td>
+                    <td class="standard">50</td>
+                    <td class="standard">60</td>
+                    <td class="standard">70</td>
+                    <td class="standard">75</td>
+                    <td class="standard">80</td>
+                  </tr>
+                  <tr class="standard">
+                    <td class="high standard">Actual chrominance subsampling</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                  </tr>
+                </table>
+                </div>
+                
+        <a name="TigerVNC_JPEG_Qual"></a>
+            </dd>
+            <dt class="Description-3 Description">TigerVNC JPEG Quality Levels</dt>
+            <dd class="Description-3 Description">
+                <div class="table">
+                <table class="standard">
+                  <thead class="standard">
+                  <tr class="head ">
+                    <th class="head standard">JPEG quality level</th>
+                    <th class="head standard">0</th>
+                    <th class="head standard">1</th>
+                    <th class="head standard">2</th>
+                    <th class="head standard">3</th>
+                    <th class="head standard">4</th>
+                    <th class="head standard">5</th>
+                    <th class="head standard">6</th>
+                    <th class="head standard">7</th>
+                    <th class="head standard">8</th>
+                    <th class="head standard">9</th>
+                  </tr>
+                  </thead>
+                  <tr class="standard">
+                    <td class="high standard">Actual JPEG quality</td>
+                    <td class="standard">15</td>
+                    <td class="standard">29</td>
+                    <td class="standard">41</td>
+                    <td class="standard">42</td>
+                    <td class="standard">62</td>
+                    <td class="standard">77</td>
+                    <td class="standard">79</td>
+                    <td class="standard">86</td>
+                    <td class="standard">92</td>
+                    <td class="standard">100</td>
+                  </tr>
+                  <tr class="standard">
+                    <td class="high standard">Actual chrominance subsampling</td>
+                    <td class="standard">4X</td>
+                    <td class="standard">4X</td>
+                    <td class="standard">4X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">2X</td>
+                    <td class="standard">1X</td>
+                    <td class="standard">1X</td>
+                    <td class="standard">1X</td>
+                    <td class="standard">1X</td>
+                  </tr>
+                  <tr class="standard">
+                    <td class="high standard">Average compression ratio *</td>
+                    <td class="standard">100</td>
+                    <td class="standard">80</td>
+                    <td class="standard">70</td>
+                    <td class="standard">60</td>
+                    <td class="standard">50</td>
+                    <td class="standard">40</td>
+                    <td class="standard">30</td>
+                    <td class="standard">25</td>
+                    <td class="standard">20</td>
+                    <td class="standard">10</td>
+                  </tr>
+                </table>
+                </div>
+                
+                <div class="important"><p class="important">
+                * Experimentally determined by compressing every 10th frame in the SPECviewperf 9 benchmark suite
+                </p></div>
+            </dd>
+        </dl>
+        TurboVNC, on the other hand, includes extensions to Tight encoding that 
+        allow the JPEG quality to be specified on the standard 1-100 scale and 
+        that allow the JPEG chrominance subsampling to be specified seperately.  
+        TigerVNC 1.2 and later includes the same extensions on the server side, 
+        so in this regard, the TigerVNC 1.2+ Server behaves like the TurboVNC 
+        Server when a TurboVNC viewer is connected to it. <br /><br /> When a 
+        TurboVNC viewer is connected to a TightVNC or TigerVNC 1.0/1.1 server, 
+        setting the JPEG quality to N in the TurboVNC Viewer sets the JPEG 
+        quality level to N/10 in the TightVNC or TigerVNC server.  For instance, 
+        if you set the JPEG quality to 95 in the TurboVNC Viewer, this would 
+        translate to a JPEG quality level of 9, which would set the actual JPEG 
+        quality/subsampling to 80/2X if connected to a TightVNC server and 
+        100/1X if connected to a TigerVNC 1.0/1.1 server. <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Changing the JPEG chrominance subsampling option in the TurboVNC Viewer 
+        has no effect when connected to a TightVNC or TigerVNC 1.0/1.1 server. 
+        <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Normally, the TurboVNC Viewer Options dialog only allows you to select 
+        the compression levels that are useful for the TurboVNC Server, but you 
+        can use the TurboVNC Viewer&rsquo;s <code>CompressLevel</code> parameter 
+        to specify additional compression levels.  You can also set the TurboVNC 
+        Viewer&rsquo;s <code>CompatibleGUI</code> parameter to expose all 10 
+        compression levels in the TurboVNC Viewer Options dialog, which is 
+        useful when connecting to non-TurboVNC servers.  It should be noted, 
+        however, that our experiments have shown that compression levels higher 
+        than 5 are generally not useful in the TightVNC and TigerVNC Servers.  
+        They increase CPU usage exponentially without significantly reducing 
+        network usage relative to Compression Level 5. <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Zlib introduces a significant amount of performance overhead, even when 
+        zlib compression level 0 (no compression) is used, so TurboVNC supports 
+        a Tight encoding extension that allows the server to bypass zlib when 
+        encoding a particular subrectangle.  The extension is enabled when a VNC 
+        viewer advertises support for it and requests Compression Level 0.  As 
+        of this writing, TightVNC and TigerVNC do not support the extension, so 
+        the TightVNC and TigerVNC servers will use zlib to 
+        &ldquo;compress&rdquo; framebuffer updates if you request Compression 
+        Level 0 using the TurboVNC Viewer. <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        When properly configured, version 1.2 and later (except versions 1.4.0 - 
+        1.4.2, which contained a performance regression) of the TigerVNC Server 
+        can be made to perform similarly to a single-threaded instance of the 
+        TurboVNC Server.  However, all other versions of TigerVNC and TightVNC 
+        will use much more CPU time across the board than the TurboVNC Server, 
+        all else being equal.  With JPEG enabled, Compression Levels 1 and 2 in 
+        TigerVNC are roughly equivalent to the same compression levels in 
+        TurboVNC, except that TigerVNC enables interframe comparison 
+        automatically with Compression Level 2 and above.
+    </li>
+</ul>
+
+
+
+<h2 id="hd0011002">11.2&nbsp;TightVNC or TigerVNC Viewers</h2>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        When either a TightVNC or TigerVNC viewer is connected to a TurboVNC 
+        session, the TurboVNC Server emulates the behavior of a TigerVNC server, 
+        translating JPEG quality levels into actual JPEG quality and subsampling 
+        as specified in Section 
+        <a href="#TigerVNC_JPEG_Qual" class="ref">11.1</a>. <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Zlib introduces a significant amount of performance overhead, even when 
+        zlib compression level 0 (no compression) is used, so TurboVNC supports 
+        a Tight encoding extension that allows the server to bypass zlib when 
+        encoding a particular subrectangle.  The extension is enabled when a VNC 
+        viewer advertises support for it and requests Compression Level 0.  As 
+        of this writing, TightVNC and TigerVNC do not support the extension, so 
+        the TurboVNC Server will use zlib to &ldquo;compress&rdquo; framebuffer 
+        updates if you request Compression Level 0 using the TightVNC or 
+        TigerVNC Viewer. <br /><br />
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        Refer to Section <a href="#AdvancedCompression" class="ref">7.2</a> for 
+        a description of how the TurboVNC Server implements Compression Levels 
+        0-9. <br /><br />
+    </li>
+</ul>
+
+
+
+<h2 id="hd0011003">11.3&nbsp;RealVNC</h2>
+
+<p>The TurboVNC Viewer supports the Hextile, Raw, and ZRLE encoding types, 
+which are compatible with RealVNC.  None of those encoding types can be 
+selected from the TurboVNC Viewer Options dialog, but Hextile or ZRLE 
+will be selected automatically when connecting to a RealVNC server.  
+Non-Tight encoding types, such as Hextile and Raw, can also be specified 
+using the TurboVNC Viewer&rsquo;s <code>Encoding</code> parameter.  In 
+addition to Hextile, Raw, and ZRLE, the TurboVNC Server also supports 
+the RRE, CoRRE, and Zlib legacy encoding types, for compatibility with 
+older VNC viewers.</p>
+
+<p>All of the non-Tight encoding types have performance drawbacks.  Raw 
+encoding requires a gigabit or faster network in order to achieve decent 
+performance, and it can easily take up all of the bandwidth on a gigabit 
+network.  (It also doesn&rsquo;t perform particularly well in the 
+TurboVNC Viewer, because of the need to convert pixels from bytes to 
+ints in Java.)  Hextile uses very small tiles, which causes it to incur 
+a large amount of computational overhead.  It compresses too poorly to 
+perform well on slow networks but uses too much CPU time to perform well 
+on fast networks.  ZRLE improves upon this, but it is still too 
+computationally intense for fast networks.  The <code>vncviewer</code> 
+man page contains additional information about how Hextile and ZRLE work.</p>
+
+<p><br /></p>
+
+<hr class="break" />
+
+
+
+<h1 id="hd0012"><a name="file012"></a>12&nbsp;Advanced Configuration</h1>
+
+
+<h2 id="hd0012001">12.1&nbsp;Server Settings</h2>
+
+<p>The TurboVNC Server is normally configured in the following ways, in 
+increasing order of precedence:</p>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        A system-wide configuration file 
+        (<strong class="filename">/etc/turbovncserver.conf</strong>), which can 
+        be used to modify the default values of certain <code>vncserver</code> 
+        and <code>Xvnc</code> command-line options
+    </li>
+    <li class="Ordered-1 Ordered">
+        A per-user configuration file 
+        (<strong class="filename">~/.vnc/turbovncserver.conf</strong>), which 
+        can be used to modify the default values of certain 
+        <code>vncserver</code> and <code>Xvnc</code> command-line options
+    </li>
+    <li class="Ordered-1 Ordered">
+        <code>vncserver</code> and <code>Xvnc</code> command-line options
+    </li>
+    <li class="Ordered-1 Ordered">
+        <code>tvncconfig</code>, which can be used to modify certain TurboVNC 
+        Server parameters in a running TurboVNC session
+    </li>
+    <li class="Ordered-1 Ordered">
+        A system-wide security configuration file 
+        (<strong class="filename">/etc/turbovncserver-security.conf</strong>), 
+        which can be used to configure certain TurboVNC Server security features 
+        as well as restrict the scope of TurboVNC Server features that users are 
+        allowed to configure
+    </li>
+</ol>
+
+<p>Refer to the TurboVNC man pages for more information:</p>
+
+<pre class="verbatim">
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncserver
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;Xvnc
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncconnect
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;vncpasswd
+man&nbsp;-M&nbsp;/opt/TurboVNC/man&nbsp;tvncconfig
+</pre>
+
+<p><br /> This section documents rarely-used advanced TurboVNC Server 
+settings that can be configured using environment variables.</p>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_ALRALL = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">TurboVNC Server Parameter</td>
+    <td class="standard"><code>ALRAll = <em>False | True</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/Enable automatic lossless refresh for regions that were drawn using X11 functions other than <code>X[Shm]PutImage()</code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Disabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        See Section <a href="#ALR" class="ref">7.4</a>
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_ALRCOPYRECT = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/Enable automatic lossless refresh for regions that were drawn using CopyRect</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Enabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        See Section <a href="#ALR" class="ref">7.4</a>
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_COMBINERECT = <em>{c}</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Combine framebuffer updates with more than <em><code>{c}</code></em> rectangles into a single rectangle spanning the bounding box of all of the constituent rectangles</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard"><code>100</code></td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        Applications can sometimes draw many thousands of points or tiny lines 
+        using individual X11 calls, and this can cause the VNC server to send 
+        many thousands of tiny rectangles to the VNC viewer.  The overhead 
+        associated with this can bog down the viewer, and in extreme cases, the 
+        number of rectangles may even exceed the maximum number that is allowed 
+        in a single framebuffer update (65534.)  Thus, if a framebuffer update 
+        contains more than <em><code>{c}</code></em> rectangles, the TurboVNC 
+        Server will coalesce it into a single rectangle that covers all of the 
+        rectangles in the update.  For applications that generate many tiny 
+        rectangles, increasing the value of <code>TVNC_COMBINERECT</code> may 
+        significantly increase the number of pixels sent to the viewer, which 
+        will increase network usage.  However, for those same applications, 
+        lowering the value of <code>TVNC_COMBINERECT</code> will increase the 
+        number of rectangles sent to the viewer, which will increase the CPU 
+        usage of both the server and the viewer.
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_ICEBLOCKSIZE = <em>{s}</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Set the block size for interframe comparison to <em><code>{s}</code></em> x <em><code>{s}</code></em> pixels.  Setting <em><code>{s}</code></em> to 0 causes the TurboVNC Server to compare full rectangles, as TurboVNC 1.2.x did.</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard"><code>256</code></td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        If interframe comparison is enabled (see Section 
+        <a href="#InterframeComparison" class="ref">7.1</a>), then the TurboVNC 
+        Server compares each rectangle of each framebuffer update on a 
+        block-by-block basis and sends only the blocks that have changed.  This 
+        prevents large rectangles from being re-transmitted if only a few pixels 
+        in the rectangle have changed. Using smaller block sizes can decrease 
+        network usage if only a few pixels have changed between updates.  
+        However, using smaller block sizes can also interfere with the Tight 
+        encoder&rsquo;s ability to efficiently split rectangles into 
+        subrectangles, thus increasing host CPU usage (and sometimes increasing 
+        network usage as well, which defeats the purpose of interframe 
+        comparison.) Setting the block size to 0 causes the TurboVNC Server to 
+        compare full framebuffer update rectangles, as TurboVNC 1.2.x did. 
+        <br /><br /> The default block size of 256x256 was chosen based on 
+        extensive low-level experiments using the same set of RFB session 
+        captures that were used when designing the TurboVNC encoder.  For most 
+        of those datasets, 256x256 blocks produced the lowest network and CPU 
+        usage, but actual mileage may vary. There were rare cases in which 64x64 
+        blocks or full-rectangle comparison produced better network and CPU 
+        usage.
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_ICEDEBUG = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/Enable the interframe comparison debugger</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Disabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        If interframe comparison is enabled (see Section 
+        <a href="#InterframeComparison" class="ref">7.1</a>), then setting this 
+        environment variable to <code>1</code> will cause the TurboVNC Server to 
+        change the color of duplicate screen regions without culling them from 
+        the framebuffer update stream.  This allows you to easily see which 
+        applications are generating duplicate updates.
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_MT = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/Enable multithreaded image encoding</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Enabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        See Section <a href="#Multithreading" class="ref">7.5</a>
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_NTHREADS = <em>{n}</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Use <em><code>{n}</code></em> threads (1 &lt;= <em><code>{n}</code></em> &lt;= 4) to perform image encoding</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard"><em><code>{n}</code></em> = the number of CPU cores in the system, up to a maximum of 4</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        See Section <a href="#Multithreading" class="ref">7.5</a>
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_PROFILE = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">TurboVNC Server Parameter</td>
+    <td class="standard"><code>Profile = <em>False | True</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/enable profiling output</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Disabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        If profiling output is enabled, then the TurboVNC Server will 
+        continuously benchmark itself and periodically print the throughput of 
+        various stages in its image pipeline to the TurboVNC session log.
+    </dd>
+</dl>
+
+
+
+<h2 id="hd0012002">12.2&nbsp;Viewer Settings</h2>
+
+<p>The TurboVNC Viewer is normally configured in the following ways, in 
+increasing order of precedence:</p>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        A per-user configuration file 
+        (<strong class="filename">~/.vnc/default.turbovnc</strong>), which can 
+        be used to modify the default values of TurboVNC Viewer parameters
+    </li>
+    <li class="Ordered-1 Ordered">
+        TurboVNC Viewer parameters, which can be set on the command line or in a 
+        connection info file
+    </li>
+</ol>
+
+<p>Run</p>
+
+<pre class="verbatim">
+/opt/TurboVNC/bin/vncviewer&nbsp;-?
+</pre>
+
+<p>on Linux/Un*x and Mac systems or</p>
+
+<pre class="verbatim">
+c:\Program&nbsp;Files\TurboVNC\vncviewer.bat&nbsp;-?
+</pre>
+
+<p>on Windows systems to display a list of command-line options and 
+commonly-used parameters and their descriptions.  Replace 
+<code>-?</code> with <code>-??</code> to display a list of advanced 
+parameters and their descriptions.</p>
+
+<p><br /> This section documents rarely-used advanced TurboVNC Viewer 
+settings that can be configured using environment variables or Java 
+system properties.</p>
+
+<p>Java system properties can be set using the 
+<code>JAVA_TOOL_OPTIONS</code> environment variable.  For instance, on 
+Linux/Un*x and Mac systems, you could execute:</p>
+
+<pre class="verbatim">
+JAVA_TOOL_OPTIONS=-Dturbovnc.sessmgr=0&nbsp;/opt/TurboVNC/bin/vncviewer
+</pre>
+
+<p>to start the TurboVNC Viewer with the TurboVNC Session Manager disabled.  
+The Java system properties listed below can also be specified in 
+<strong class="filename">~/.vnc/default.turbovnc</strong>.</p>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Java System Property</td>
+    <td class="standard"><code>turbovnc.fshidedock = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Always show/always hide the menu bar and dock in full-screen mode</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Platforms</td>
+    <td class="standard">Mac</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Hide the menu bar and dock in full-screen mode if bump scrolling is enabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        By default, the Mac TurboVNC Viewer hides the menu bar and dock in 
+        full-screen mode if bump scrolling is enabled.  Setting this property to 
+        <code>0</code> or <code>1</code> causes the viewer to always show or 
+        always hide the menu bar and dock in full-screen mode, irrespective of 
+        bump scrolling.
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Java System Property</td>
+    <td class="standard"><code>turbovnc.primary = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/enable the use of the X11 PRIMARY clipboard selection</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Enabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        X11 has two ways of copying/pasting text.  When text is selected in most 
+        X11 applications, it is copied to the PRIMARY selection, and it can be 
+        pasted by pressing the middle mouse button.  When text is explicitly 
+        copied using a &ldquo;Copy&rdquo; menu option or a hotkey (such as 
+        CTRL-C), it is copied to the CLIPBOARD selection, and it can only be 
+        pasted using a &ldquo;Paste&rdquo; menu option or a hotkey (such as 
+        CTRL-V.)  Normally, on X11 platforms, the TurboVNC Viewer transfers the 
+        PRIMARY selection from client to server, and when receiving a clipboard 
+        update from the server, it sets both the PRIMARY and CLIPBOARD 
+        selections with the server&rsquo;s clipboard contents. Disabling this 
+        property causes only the CLIPBOARD selection to be transferred from 
+        client to server.  (In other words, the clipboard will not be 
+        transferred unless you explicitly copy something using a menu option or 
+        a hotkey.)  Also, if this property is disabled, then clipboard changes 
+        from the server will only affect the client&rsquo;s CLIPBOARD selection.  
+        (In other words, you will have to use a menu option or a hotkey to paste 
+        the server&rsquo;s clipboard contents.)
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Java System Property</td>
+    <td class="standard"><code>turbovnc.sessmgr = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/enable the TurboVNC Session Manager</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Enabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        Disabling this property will completely disable the TurboVNC Session 
+        Manager.
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Environment Variable</td>
+    <td class="standard"><code>TVNC_SINGLESCREEN = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Java System Property</td>
+    <td class="standard"><code>turbovnc.singlescreen = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Disable/enable forcing a single-screen layout when using automatic desktop resizing</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Disabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        If automatic desktop resizing and multi-screen spanning are enabled, 
+        then the TurboVNC Viewer normally requests a screen layout from the 
+        server that fits within the viewer window without using scrollbars and 
+        that aligns the server&rsquo;s screen boundaries with the client&rsquo;s 
+        when the viewer window is in its default position.  Setting this 
+        environment variable or property to <code>1</code> restores the 
+        automatic desktop resizing behavior of version 2.1.x and prior of the 
+        TurboVNC Viewer, requesting a single-screen layout from the server even 
+        if it supports multi-screen layouts.
+    </dd>
+</dl>
+
+<div class="table">
+<table class="standard">
+  <tr class="standard">
+    <td class="high standard">Java System Property</td>
+    <td class="standard"><code>turbovnc.sshbannerdlg = <em>0 | 1</em></code></td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Summary</td>
+    <td class="standard">Display the banner message from the SSH server in a dialog box</td>
+  </tr>
+  <tr class="standard">
+    <td class="high standard">Default Value</td>
+    <td class="standard">Disabled</td>
+  </tr>
+</table>
+</div>
+
+
+<dl class="Description">
+    <dt class="Description-1 Description">Description</dt>
+    <dd class="Description-1 Description">
+        The default behavior of the TurboVNC Viewer is to display the banner 
+        message from the SSH server on the command line.  Enabling this property 
+        causes the viewer to display the banner message in a dialog box instead.
+    </dd>
+</dl>
+
+<p><br /></p>
+
+
+</body>
+</html>
+

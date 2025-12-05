@@ -1,0 +1,119 @@
+package com.turbovnc.rfb;
+
+public final class Keysyms {
+
+  public static final int ISO_LEVEL3_SHIFT = 0xFE03;
+
+  public static final int DEAD_GRAVE = 0xFE50;
+  public static final int DEAD_ACUTE = 0xFE51;
+  public static final int DEAD_CIRCUMFLEX = 0xFE52;
+  public static final int DEAD_TILDE = 0xFE53;
+  public static final int DEAD_MACRON = 0xFE54;
+  public static final int DEAD_BREVE = 0xFE55;
+  public static final int DEAD_ABOVEDOT = 0xFE56;
+  public static final int DEAD_DIAERESIS = 0xFE57;
+  public static final int DEAD_ABOVERING = 0xFE58;
+  public static final int DEAD_DOUBLEACUTE = 0xFE59;
+  public static final int DEAD_CARON = 0xFE5A;
+  public static final int DEAD_CEDILLA = 0xFE5B;
+  public static final int DEAD_OGONEK = 0xFE5C;
+  public static final int DEAD_IOTA = 0xFE5D;
+  public static final int DEAD_VOICED_SOUND = 0xFE5E;
+  public static final int DEAD_SEMIVOICED_SOUND = 0xFE5F;
+
+  public static final int BACKSPACE = 0xFF08;
+  public static final int TAB = 0xFF09;
+  public static final int LINEFEED = 0xFF0A;
+  public static final int CLEAR = 0xFF0B;
+  public static final int RETURN = 0xFF0D;
+  public static final int PAUSE = 0xFF13;
+  public static final int SCROLL_LOCK = 0xFF14;
+  public static final int SYS_REQ = 0xFF15;
+  public static final int ESCAPE = 0xFF1B;
+  public static final int DELETE = 0xFFFF;
+
+  public static final int HOME = 0xFF50;
+  public static final int LEFT = 0xFF51;
+  public static final int UP = 0xFF52;
+  public static final int RIGHT = 0xFF53;
+  public static final int DOWN = 0xFF54;
+  public static final int PRIOR = 0xFF55;
+  public static final int PAGE_UP = 0xFF55;
+  public static final int NEXT = 0xFF56;
+  public static final int PAGE_DOWN = 0xFF56;
+  public static final int END = 0xFF57;
+  public static final int BEGIN = 0xFF58;
+
+  public static final int SELECT = 0xFF60;
+  public static final int PRINT = 0xFF61;
+  public static final int EXECUTE = 0xFF62;
+  public static final int INSERT = 0xFF63;
+  public static final int UNDO = 0xFF65;
+  public static final int REDO = 0xFF66;
+  public static final int MENU = 0xFF67;
+  public static final int FIND = 0xFF68;
+  public static final int CANCEL = 0xFF69;
+  public static final int HELP = 0xFF6A;
+  public static final int BREAK = 0xFF6B;
+  public static final int MODE_SWITCH = 0xFF7E;
+  public static final int SCRIPT_SWITCH = 0xFF7E;
+  public static final int NUM_LOCK = 0xFF7F;
+
+  public static final int F1 = 0xFFBE;
+  public static final int F2 = 0xFFBF;
+  public static final int F3 = 0xFFC0;
+  public static final int F4 = 0xFFC1;
+  public static final int F5 = 0xFFC2;
+  public static final int F6 = 0xFFC3;
+  public static final int F7 = 0xFFC4;
+  public static final int F8 = 0xFFC5;
+  public static final int F9 = 0xFFC6;
+  public static final int F10 = 0xFFC7;
+  public static final int F11 = 0xFFC8;
+  public static final int F12 = 0xFFC9;
+  public static final int F13 = 0xFFCA;
+
+  public static final int SHIFT_L = 0xFFE1;
+  public static final int SHIFT_R = 0xFFE2;
+  public static final int CONTROL_L = 0xFFE3;
+  public static final int CONTROL_R = 0xFFE4;
+  public static final int META_L = 0xFFE7;
+  public static final int META_R = 0xFFE8;
+  public static final int ALT_L = 0xFFE9;
+  public static final int ALT_R = 0xFFEA;
+
+  public static final int SUPER_L = 0xFFEB;
+  public static final int SUPER_R = 0xFFEC;
+  public static final int CAPS_LOCK = 0xFFE5;
+
+  public static final int KP_ENTER = 0xFF8D;
+  public static final int KP_HOME = 0xFF95;
+  public static final int KP_LEFT = 0xFF96;
+  public static final int KP_UP = 0xFF97;
+  public static final int KP_RIGHT = 0xFF98;
+  public static final int KP_DOWN = 0xFF99;
+  public static final int KP_PAGE_UP = 0xFF9A;
+  public static final int KP_PAGE_DOWN = 0xFF9B;
+  public static final int KP_END = 0xFF9C;
+  public static final int KP_BEGIN = 0xFF9D;
+  public static final int KP_INSERT = 0xFF9E;
+  public static final int KP_DELETE = 0xFF9F;
+  public static final int KP_0 = 0xFFB0;
+  public static final int KP_1 = 0xFFB1;
+  public static final int KP_2 = 0xFFB2;
+  public static final int KP_3 = 0xFFB3;
+  public static final int KP_4 = 0xFFB4;
+  public static final int KP_5 = 0xFFB5;
+  public static final int KP_6 = 0xFFB6;
+  public static final int KP_7 = 0xFFB7;
+  public static final int KP_8 = 0xFFB8;
+  public static final int KP_9 = 0xFFB9;
+  public static final int KP_DECIMAL = 0xFFAE;
+  public static final int KP_ADD = 0xFFAB;
+  public static final int KP_SEPARATOR = 0xFFAC;
+  public static final int KP_SUBTRACT = 0xFFAD;
+  public static final int KP_MULTIPLY = 0xFFAA;
+  public static final int KP_DIVIDE = 0xFFAF;
+
+  private Keysyms() {}
+}

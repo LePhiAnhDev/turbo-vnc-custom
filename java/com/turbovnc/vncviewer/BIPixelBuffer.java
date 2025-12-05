@@ -1,0 +1,145 @@
+package com.turbovnc.vncviewer;
+
+import java.awt.*;
+import java.awt.image.*;
+
+import com.turbovnc.rfb.*;
+import com.turbovnc.rdr.ErrorException;
+
+public class BIPixelBuffer extends PlatformPixelBuffer
+  implements ImageObserver {
+
+  public BIPixelBuffer(int w, int h, CConn cc_, DesktopWindow desktop_) {
+    super(w, h, cc_, desktop_);
+    clip = new Rectangle();
+  }
+
+  public void setPF(PixelFormat pf) {
+    super.setPF(pf);
+    createImage(width(), height());
+  }
+
+  public void updateColourMap() {
+    cm = new IndexColorModel(8, nColours, reds, greens, blues);
+    createImage(width, height);
+  }
+
+  // resize() resizes the image, preserving the image data where possible.
+  public void resize(int w, int h) {
+    if (w == width() && h == height())
+      return;
+
+    width = w;
+    height = h;
+    createImage(w, h);
+  }
+
+  private void createImage(int w, int h) {
+    if (w == 0 || h == 0) return;
+    WritableRaster wr;
+    if (cm instanceof IndexColorModel)
+      wr = ((IndexColorModel)cm).createCompatibleWritableRaster(w, h);
+    else
+      wr = ((DirectColorModel)cm).createCompatibleWritableRaster(w, h);
+    image = new BufferedImage(cm, wr, true, null);
+    SampleModel sm = image.getSampleModel();
+    if (sm instanceof SinglePixelPackedSampleModel) {
+      stride = ((SinglePixelPackedSampleModel)sm).getScanlineStride();
+    } else {
+      stride = sm.getWidth();
+    }
+    db = wr.getDataBuffer();
+    if (sm.getTransferType() == DataBuffer.TYPE_INT)
+      data = (Object)((DataBufferInt)db).getData();
+    else if (sm.getTransferType() == DataBuffer.TYPE_BYTE)
+      data = (Object)((DataBufferByte)db).getData();
+    else if (sm.getTransferType() == DataBuffer.TYPE_USHORT)
+      data = (Object)((DataBufferUShort)db).getData();
+    else
+      throw new ErrorException("Unsupported pixel type");
+  }
+
+  public void fillRect(int x, int y, int w, int h, int pix) {
+    Graphics2D graphics = (Graphics2D)image.getGraphics();
+    switch (format.depth) {
+      case 24:
+        graphics.setColor(new Color(pix));
+        graphics.fillRect(x, y, w, h);
+        break;
+      default:
+        Color color = new Color((0xff << 24) | (cm.getRed(pix) << 16) |
+                                (cm.getGreen(pix) << 8) | (cm.getBlue(pix)));
+        graphics.setColor(color);
+        graphics.fillRect(x, y, w, h);
+        break;
+    }
+    graphics.dispose();
+  }
+
+  public void imageRect(int x, int y, int w, int h, Object pix) {
+    if (pix instanceof Image) {
+      Image img = (Image)pix;
+      clip = new Rectangle(x, y, w, h);
+      synchronized (clip) {
+        tk.prepareImage(img, -1, -1, this);
+        try {
+          clip.wait(1000);
+        } catch (InterruptedException e) {
+          throw new ErrorException("Error decoding JPEG data");
+        }
+      }
+      clip = null;
+      img.flush();
+    } else {
+      if (image.getSampleModel().getTransferType() == DataBuffer.TYPE_BYTE) {
+        byte[] bytes = new byte[((int[])pix).length];
+        for (int i = 0; i < bytes.length; i++)
+          bytes[i] = (byte)((int[])pix)[i];
+        pix = bytes;
+      } else if (image.getSampleModel().getTransferType() ==
+                 DataBuffer.TYPE_USHORT) {
+        short[] shorts = new short[((int[])pix).length];
+        for (int i = 0; i < shorts.length; i++)
+          shorts[i] = (short)((int[])pix)[i];
+        pix = shorts;
+      }
+      image.getSampleModel().setDataElements(x, y, w, h, pix, db);
+    }
+  }
+
+  public void copyRect(int x, int y, int w, int h, int srcX, int srcY) {
+    Graphics2D graphics = (Graphics2D)image.getGraphics();
+    graphics.copyArea(srcX, srcY, w, h, x - srcX, y - srcY);
+    graphics.dispose();
+  }
+
+  public Image getImage() {
+    return (Image)image;
+  }
+
+  public boolean imageUpdate(Image img, int infoflags, int x, int y, int w,
+                             int h) {
+    if ((infoflags & (ALLBITS | ABORT)) == 0) {
+      return true;
+    } else {
+      if ((infoflags & ALLBITS) != 0) {
+        if (clip != null) {
+          synchronized (clip) {
+            Graphics2D graphics = (Graphics2D)image.getGraphics();
+            graphics.drawImage(img, clip.x, clip.y, clip.width, clip.height,
+                               null);
+            graphics.dispose();
+            clip.notify();
+          }
+        }
+      }
+      return false;
+    }
+  }
+
+  BufferedImage image;
+  DataBuffer db;
+  Rectangle clip;
+
+  static LogWriter vlog = new LogWriter("BIPixelBuffer");
+}

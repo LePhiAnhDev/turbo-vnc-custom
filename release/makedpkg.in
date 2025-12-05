@@ -1,0 +1,129 @@
+#!/bin/sh
+
+set -u
+set -e
+trap onexit INT
+trap onexit TERM
+trap onexit EXIT
+
+TMPDIR=
+SUDO=
+
+onexit()
+{
+	if [ ! "$TMPDIR" = "" ]; then
+		$SUDO rm -rf $TMPDIR
+	fi
+}
+
+uid()
+{
+	id | cut -f2 -d = | cut -f1 -d \(;
+}
+
+safedirmove ()
+{
+	if [ "$1" = "$2" ]; then
+		return 0
+	fi
+	if [ "$1" = "" -o ! -d "$1" ]; then
+		echo safedirmove: source dir $1 is not valid
+		return 1
+	fi
+	if [ "$2" = "" -o -e "$2" ]; then
+		echo safedirmove: dest dir $2 is not valid
+		return 1
+	fi
+	if [ "$3" = "" -o -e "$3" ]; then
+		echo safedirmove: tmp dir $3 is not valid
+		return 1
+	fi
+	mkdir -p $3
+	mv $1/* $3/
+	rmdir $1
+	mkdir -p $2
+	mv $3/* $2/
+	rmdir $3
+	return 0
+}
+
+PKGNAME=@PKGNAME@
+VERSION=@VERSION@
+DEBARCH=@DEBARCH@
+SRCDIR=@CMAKE_SOURCE_DIR@
+BINDIR=@CMAKE_INSTALL_FULL_BINDIR@
+DATADIR=@CMAKE_INSTALL_FULL_DATADIR@
+DOCDIR=@CMAKE_INSTALL_FULL_DOCDIR@
+SYSCONFDIR=@CMAKE_INSTALL_FULL_SYSCONFDIR@
+BUILDVIEWER=@TVNC_BUILDVIEWER@
+
+if [ ! `uid` -eq 0 ]; then
+	SUDO=sudo
+fi
+
+umask 022
+rm -f $PKGNAME\_$DEBARCH.deb
+TMPDIR=`mktemp -d /tmp/$PKGNAME-build.XXXXXX`
+mkdir $TMPDIR/DEBIAN
+
+DESTDIR=$TMPDIR @CMAKE_MAKE_PROGRAM@ install
+
+if [ ! "$DOCDIR" = "/usr/share/doc/$PKGNAME-$VERSION" ]; then
+	safedirmove $TMPDIR/$DOCDIR $TMPDIR/usr/share/doc/$PKGNAME-$VERSION $TMPDIR/__tmpdoc
+fi
+
+mkdir -p $TMPDIR/usr/share/applications
+cat > $TMPDIR/usr/share/applications/tvncviewer.desktop <<EOF
+[Desktop Entry]
+Name=@CMAKE_PROJECT_NAME@ Viewer
+Comment=@CMAKE_PROJECT_NAME@ client application
+Exec=$BINDIR/vncviewer
+Terminal=false
+Icon=turbovnc
+Type=Application
+Categories=Application;Utility;X-Red-Hat-Extra;
+EOF
+
+if [ "$SYSCONFDIR" = "/etc" ]; then
+mkdir -p $TMPDIR/etc/polkit-1/localauthority/50-local.d
+cat > $TMPDIR/etc/polkit-1/localauthority/50-local.d/45-turbovnc-gnome3.pkla << EOF
+[Eliminate GNOME 3+ dialogs in TurboVNC]
+Identity=unix-user:*
+Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile;org.debian.pcsc-lite.access_pcsc;org.freedesktop.packagekit.system-sources-refresh;org.freedesktop.packagekit.system-network-proxy-configure
+ResultAny=no
+EOF
+mkdir -p $TMPDIR/etc/polkit-1/rules.d
+cat > $TMPDIR/etc/polkit-1/rules.d/45-turbovnc-gnome3.rules << EOF
+// Eliminate GNOME 3+ dialogs in TurboVNC
+polkit.addRule(function(action, subject) {
+  if ((action.id == "org.freedesktop.color-manager.create-device" ||
+       action.id == "org.freedesktop.color-manager.create-profile" ||
+       action.id == "org.freedesktop.color-manager.delete-device" ||
+       action.id == "org.freedesktop.color-manager.delete-profile" ||
+       action.id == "org.freedesktop.color-manager.modify-device" ||
+       action.id == "org.freedesktop.color-manager.modify-profile" ||
+       action.id == "org.debian.pcsc-lite.access_pcsc" ||
+       action.id == "org.freedesktop.packagekit.system-sources-refresh" ||
+       action.id == "org.freedesktop.packagekit.system-network-proxy-configure") &&
+      !subject.local)
+    return polkit.Result.NO;
+});
+EOF
+fi
+
+if [ "$BUILDVIEWER" = "1" -a ! "$DATADIR" = "/usr/share" ]; then
+	safedirmove $TMPDIR/$DATADIR/icons $TMPDIR/usr/share/icons $TMPDIR/__tmpicons
+fi
+
+SIZE=`du -s $TMPDIR | cut -f1`
+cat pkgscripts/deb-control | sed s/{__SIZE}/$SIZE/g > $TMPDIR/DEBIAN/control
+cat > $TMPDIR/DEBIAN/conffiles << EOF
+$SYSCONFDIR/sysconfig/tvncservers
+$SYSCONFDIR/turbovncserver.conf
+$SYSCONFDIR/turbovncserver-security.conf
+EOF
+
+$SUDO chown -Rh root:root $TMPDIR/*
+dpkg -b $TMPDIR $PKGNAME\_$VERSION\_$DEBARCH.deb
+
+exit

@@ -1,0 +1,69 @@
+* Overview
+
+TurboVNC is a derivative of VNC (Virtual Network Computing) that is tuned to
+provide peak performance for 3D and video workloads.  TurboVNC was originally a
+fork of [[https://tightvnc.com][TightVNC]*] 1.3.x.  However, the current
+version of TurboVNC contains a modern X server code base (based on X.org) and a
+variety of other [[https://turbovnc.org/About/Features][notable features]*] and
+fixes relative to TightVNC 1.3.x, including a high-performance cross-platform
+VNC viewer with session management capabilities, as well as some unique
+features designed specifically for visualization applications.  Some of those
+features are not available in any other open source Linux/Un*x remote display
+solutions.  TurboVNC compresses 3D and video workloads significantly better
+than the "tightest" compression mode in TightVNC 1.3.x while using only
+typically 15-20% of the CPU time of the latter.  Using non-default settings,
+TurboVNC can also match the best compression ratios produced by TightVNC 1.3.x
+for 2D workloads.  (See {ref prefix="Section ": AdvancedCompression}.)
+
+All VNC implementations, including TurboVNC, use the RFB (remote framebuffer)
+protocol to send "framebuffer updates" from the VNC server to any connected
+viewers.  Each framebuffer update can contain multiple "rectangles" (regions
+that have changed since the last update.)  As with TightVNC, TurboVNC analyzes
+each rectangle, splits it into multiple "subrectangles", and attempts to encode
+each subrectangle using the "subencoding type" that will provide the most
+efficient compression, given the number of unique colors in the subrectangle.
+The process by which TurboVNC does this is referred to as an "encoding method."
+A rectangle is first analyzed to determine if any significant portion of it is
+solid, and if so, that portion is encoded as a bounding box and a fill color
+("Solid subencoding.")  Of the remaining subrectangles, those with only two
+colors are encoded as a 1-bit-per-pixel bitmap with a 2-color palette ("Mono
+subencoding"), those with low numbers of unique colors are encoded as a color
+palette and an 8-bit-per-pixel bitmap ("Indexed color subencoding"), and
+subrectangles with high numbers of unique colors are encoded using either JPEG
+or arrays of RGB pixels ("Raw subencoding"), depending on the encoding method.
+zlib can optionally be used to compress the indexed color, mono and raw
+subrectangles.
+
+Part of TurboVNC's speedup comes from the use of
+[[https://libjpeg-turbo.org][libjpeg-turbo]*], a SIMD-accelerated JPEG codec.
+However, TurboVNC also eliminates the CPU-hungry smoothness detection routines
+that TightVNC uses to determine whether a subrectangle is a good candidate for
+JPEG compression, and TurboVNC's encoding methods tend to favor the use of JPEG
+more, since it is now generally the fastest subencoding type.  Furthermore,
+TurboVNC eliminates buffer copies, it maximizes network efficiency by splitting
+framebuffer updates into relatively large subrectangles, and it uses only the
+zlib compression levels that can be shown to have a measurable performance
+benefit.
+
+TurboVNC is the product of
+[[https://TurboVNC.org/pmwiki/uploads/About/tighttoturbo.pdf][extensive research]*],
+in which many different permutations of the TightVNC encoder were benchmarked
+at the low level against a variety of RFB session captures that simulate
+real-world application workloads, both 2D and 3D.  TurboVNC's encoding methods
+have been adopted by [[https://tigervnc.org][TigerVNC]*],
+[[https://libvnc.github.io][LibVNC]*], [[https://uvnc.com/][UltraVNC]*],
+and other projects.
+
+TurboVNC, when used with [[https://VirtualGL.org][VirtualGL]*], provides a
+highly performant and robust solution for remotely displaying 3D applications
+over all types of networks.
+
+On "modern" hardware, TurboVNC is capable of streaming 50+ Megapixels/second
+over a 100 Megabit/second local area network with perceptually lossless image
+quality.  TurboVNC can stream between 10 and 12 Megapixels/second over a 5
+Megabit/second broadband connection at reduced (but usable) image quality.
+
+TurboVNC is compatible with other VNC distributions.  See
+{ref prefix="Chapter ": Compatibility} for more information.  The official
+TurboVNC binaries can be installed onto the same system as other VNC
+distributions without interference.
