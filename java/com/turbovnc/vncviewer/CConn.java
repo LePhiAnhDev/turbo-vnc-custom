@@ -1672,10 +1672,6 @@ public final class CConn extends CConnection implements UserPasswdGetter,
 
   boolean isMenuVisible() { return menu.isVisible(); }
 
-  void showAbout() {
-    VncViewer.showAbout(viewport);
-  }
-
   String getEncryptionProtocol() {
     String protocol = csecurity.getProtocol();
     if (protocol.equals("None") && params.sshTunnelActive)
@@ -2954,7 +2950,7 @@ public final class CConn extends CConnection implements UserPasswdGetter,
   // after the window has been destroyed.
   boolean shuttingDown = false;
 
-  // All menu, options, about and info stuff is done in the EDT (apart from
+  // All menu, options and info stuff is done in the EDT (apart from
   // initial construction.)
   F8Menu menu;
   OptionsDialog options;

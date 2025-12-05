@@ -104,17 +104,11 @@ class ServerDialog extends Dialog implements ActionListener {
                           new Insets(0, 0, 0, 0));
 
     optionsButton = new JButton("Options...");
-    aboutButton = new JButton("About...");
     okButton = new JButton("Connect");
     updateButtons();
     cancelButton = new JButton("Cancel");
     buttonPanel = new JPanel(new GridBagLayout());
     buttonPanel.setPreferredSize(new Dimension(350, 40));
-    Dialog.addGBComponent(aboutButton, buttonPanel,
-                          0, 3, 1, 1, 0, 0, 0.8, 1,
-                          GridBagConstraints.HORIZONTAL,
-                          GridBagConstraints.CENTER,
-                          new Insets(0, 2, 0, 5));
     Dialog.addGBComponent(optionsButton, buttonPanel,
                           1, 3, 1, 1, 0, 0, 1, 1,
                           GridBagConstraints.HORIZONTAL,
@@ -134,7 +128,6 @@ class ServerDialog extends Dialog implements ActionListener {
     server.addActionListener(this);
     trashButton.addActionListener(this);
     optionsButton.addActionListener(this);
-    aboutButton.addActionListener(this);
     okButton.addActionListener(this);
     cancelButton.addActionListener(this);
   }
@@ -206,8 +199,6 @@ class ServerDialog extends Dialog implements ActionListener {
           ((JTextField)editor.getEditorComponent()).setText(serverStr);
         updateButtons();
       }
-    } else if (s instanceof JButton && (JButton)s == aboutButton) {
-      VncViewer.showAbout(getJDialog());
     } else if (s instanceof JComboBox && (JComboBox)s == server) {
       if (e.getActionCommand().equals("comboBoxEdited") ||
           e.getActionCommand().equals("comboBoxChanged"))
@@ -253,7 +244,7 @@ class ServerDialog extends Dialog implements ActionListener {
   JComboBox server;
   ComboBoxEditor editor;
   JPanel topPanel, buttonPanel;
-  JButton aboutButton, optionsButton, okButton, cancelButton, trashButton;
+  JButton optionsButton, okButton, cancelButton, trashButton;
   OptionsDialog options;
 
   static LogWriter vlog = new LogWriter("ServerDialog");

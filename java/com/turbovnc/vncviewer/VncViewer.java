@@ -710,20 +710,6 @@ public final class VncViewer implements Runnable, OptionsDialogCallback {
     }
   }
 
-  static void showAbout(Component comp) {
-    JOptionPane.showMessageDialog(comp,
-      VncViewer.PRODUCT_NAME + " v" + VncViewer.version +
-        " (" + VncViewer.build + ")\n" +
-      "[JVM: " + System.getProperty("java.vm.name") + " " +
-        System.getProperty("java.version") + " " +
-        System.getProperty("os.arch") + "]\n" +
-      "Built on " + VncViewer.pkgDate + " at " + VncViewer.pkgTime + "\n" +
-      "Copyright (C) " + VncViewer.copyrightYear + " " + VncViewer.copyright +
-        "\n" +
-      VncViewer.url,
-      "About TurboVNC Viewer", JOptionPane.INFORMATION_MESSAGE, LOGO_ICON128);
-  }
-
   void showOptions() {
     options = new OptionsDialog(this, params);
     options.initDialog();

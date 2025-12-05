@@ -83,8 +83,6 @@ public final class F8Menu extends JPopupMenu implements ActionListener {
                              "   (Ctrl-Alt-Shift-N)"), KeyEvent.VK_N);
       addSeparator();
     }
-    about = addMenuItem("About TurboVNC Viewer...", KeyEvent.VK_A);
-    addSeparator();
     dismiss = addMenuItem("Dismiss Menu");
     setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
@@ -164,8 +162,6 @@ public final class F8Menu extends JPopupMenu implements ActionListener {
       else
         cc.profileDialog.showDialog(cc.viewport);
       cc.toggleProfile();
-    } else if (actionMatch(ev, about)) {
-      cc.showAbout();
     } else if (actionMatch(ev, dismiss)) {
       firePopupMenuCanceled();
     }
@@ -174,7 +170,7 @@ public final class F8Menu extends JPopupMenu implements ActionListener {
   CConn cc;
   JMenuItem tileWindows;
   JMenuItem exit, clipboard, refresh, losslessRefresh;
-  JMenuItem newConn, options, info, profile, screenshot, about, dismiss;
+  JMenuItem newConn, options, info, profile, screenshot, dismiss;
   static JMenuItem f8;
   JCheckBoxMenuItem showToolbar, viewOnly, grabKeyboard;
 

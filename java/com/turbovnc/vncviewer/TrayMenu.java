@@ -17,8 +17,6 @@ public final class TrayMenu extends PopupMenu implements ActionListener {
       newConn = addMenuItem("New connection...");
     }
     options = addMenuItem("Default options...");
-    addSeparator();
-    about = addMenuItem("About TurboVNC Viewer...");
     if (!viewer.getParams().noNewConn.get()) {
       addSeparator();
       exit = addMenuItem("Close listener");
@@ -88,8 +86,6 @@ public final class TrayMenu extends PopupMenu implements ActionListener {
       VncViewer.newViewer(viewer);
     } else if (actionMatch(ev, options)) {
       viewer.showOptions();
-    } else if (actionMatch(ev, about)) {
-      VncViewer.showAbout(null);
     } else if (actionMatch(ev, exit)) {
       if (Utils.isMac())
         setDockMenu(null);
@@ -100,7 +96,7 @@ public final class TrayMenu extends PopupMenu implements ActionListener {
     }
   }
 
-  MenuItem newConn, options, about, exit;
+  MenuItem newConn, options, exit;
   TrayIcon trayIcon;
   SystemTray tray;
   VncViewer viewer;
