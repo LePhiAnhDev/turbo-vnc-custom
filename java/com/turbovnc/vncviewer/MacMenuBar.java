@@ -69,9 +69,9 @@ public final class MacMenuBar extends JMenuBar implements ActionListener {
       }
 
       InvocationHandler prefsHandler = new MyInvocationHandler(cc);
-      proxy = Proxy.newProxyInstance(prefsHandlerClass.getClassLoader(),
-                                     new Class[]{ prefsHandlerClass },
-                                     prefsHandler);
+      Object proxy = Proxy.newProxyInstance(prefsHandlerClass.getClassLoader(),
+                                            new Class[]{ prefsHandlerClass },
+                                            prefsHandler);
       Method setPreferencesHandler =
         appClass.getMethod("setPreferencesHandler", prefsHandlerClass);
       setPreferencesHandler.invoke(obj, new Object[]{ proxy });
